@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Virtual Studygroup</string>
+    <string name="register">Register</string>
+    <string name="log_in">Log In</string>
+    <string name="welcome_to_virtual_studygroup">Welcome to Virtual Studygroup</string>
+    <string name="welcom_text">Create your free account or log in if you are not a new user</string>
+    <string name="registration">Registration</string>
+    <string name="lets_get_you_set_up">Lets get you set up</string>
+    <string name="register_as">Register as?</string>
+    <string name="identification">Identification</string>
+    <string name="user_identification">User Identification</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="welcome_back">Welcome back!</string>
+    <string name="complete_registration">Complete Registration</string>
+    <string name="just_a_few_more">Just a few more . . .</string>
+    <string name="qualification">Qualification</string>
+    <string name="department">Department</string>
+</resources>
