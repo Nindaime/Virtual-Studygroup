@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Virtual Studygroup</string>
+    <string name="app_name">Studygroup</string>
     <string name="register">Register</string>
     <string name="log_in">Log In</string>
     <string name="welcome_to_virtual_studygroup">Welcome to Virtual Studygroup</string>
@@ -18,4 +18,9 @@
     <string name="just_a_few_more">Just a few more . . .</string>
     <string name="qualification">Qualification</string>
     <string name="department">Department</string>
+    <string name="manage_courses">Manage Courses</string>
+    <string name="add_new_course">Add New Course</string>
+    <string name="subscribe_to_course">Subscribe to course</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="log_out">Log Out</string>
 </resources>

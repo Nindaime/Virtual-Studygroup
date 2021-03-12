@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="esw.peeplotech.virtualstudy">
+    package="esw.peeplotech.studygroup">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -17,7 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".student.StudentDashboard"></activity>
+        <activity android:name=".Profile"></activity>
+        <activity android:name=".student.SubscribeToCourse" />
+        <activity android:name=".lecturer.AddCourse" />
+        <activity android:name=".student.StudentCourse" />
+        <activity android:name=".lecturer.LecturerCourse" />
+        <activity android:name=".student.StudentDashboard" />
         <activity android:name=".lecturer.LecturerDashboard" />
         <activity
             android:name=".Splash"
@@ -51,6 +56,14 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:configChanges="orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.AppCompat"
+            tools:ignore="LockedOrientationActivity" />
     </application>
 
 </manifest>
