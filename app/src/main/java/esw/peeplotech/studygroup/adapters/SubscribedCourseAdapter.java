@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,20 +20,20 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import esw.peeplotech.studygroup.R;
+import esw.peeplotech.studygroup.databases.Database;
 import esw.peeplotech.studygroup.interfaces.ItemClickListener;
-import esw.peeplotech.studygroup.lecturer.LecturerCourse;
 import esw.peeplotech.studygroup.models.Course;
+import esw.peeplotech.studygroup.models.SubscribedCourse;
 import esw.peeplotech.studygroup.student.StudentCourse;
 import esw.peeplotech.studygroup.util.Common;
-import io.paperdb.Paper;
 
-public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseViewHolder>{
+public class SubscribedCourseAdapter extends RecyclerView.Adapter<SubscribedCourseAdapter.SubscribedCourseViewHolder>{
 
     private Activity activity;
     private Context ctx;
-    private List<Course> courseList;
+    private List<SubscribedCourse> courseList;
 
-    public CourseAdapter(Activity activity, Context context, List<Course> courseList) {
+    public SubscribedCourseAdapter(Activity activity, Context context, List<SubscribedCourse> courseList) {
         this.activity = activity;
         this.ctx = context;
         this.courseList = courseList;
@@ -42,17 +41,20 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
 
     @NonNull
     @Override
-    public CourseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SubscribedCourseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(ctx).inflate(R.layout.course_item, parent, false);
 
-        return new CourseViewHolder(itemView);
+        return new SubscribedCourseViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CourseViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SubscribedCourseViewHolder holder, int position) {
 
         //get current program
-        Course currentCourse = courseList.get(position);
+        SubscribedCourse currentSubbedCourse = courseList.get(position);
+
+        //current course
+        Course currentCourse = new Database(ctx).getCourseDetails(currentSubbedCourse.getCourse_id());
 
         //bind data
         if (!TextUtils.isEmpty(currentCourse.getCourse_img())){
@@ -68,10 +70,11 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         //click
         holder.setItemClickListener((view, position1, isLongClick) -> {
 
-            Intent courseIntent = new Intent(ctx, LecturerCourse.class);
+            Intent courseIntent = new Intent(ctx, StudentCourse.class);
             courseIntent.putExtra(Common.INTENT_COURSE, currentCourse.getCourse_id());
             ctx.startActivity(courseIntent);
             activity.overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);
+
 
         });
 
@@ -82,14 +85,14 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         return courseList.size();
     }
 
-    public class CourseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class SubscribedCourseViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         //widgets
         private ItemClickListener itemClickListener;
         public RoundedImageView courseImage;
         public TextView courseTitle, courseSubtopic;
 
-        public CourseViewHolder(@NonNull View itemView) {
+        public SubscribedCourseViewHolder(@NonNull View itemView) {
             super(itemView);
 
             //init widgets

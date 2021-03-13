@@ -2,6 +2,7 @@ package esw.peeplotech.studygroup.lecturer;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -14,11 +15,13 @@ import android.widget.TextView;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import esw.peeplotech.studygroup.Profile;
 import esw.peeplotech.studygroup.R;
 import esw.peeplotech.studygroup.adapters.CourseAdapter;
+import esw.peeplotech.studygroup.databases.Database;
 import esw.peeplotech.studygroup.models.Course;
 import esw.peeplotech.studygroup.models.User;
 import esw.peeplotech.studygroup.util.Common;
@@ -34,7 +37,7 @@ public class LecturerDashboard extends AppCompatActivity {
 
     //data
     private CourseAdapter adapter;
-    private List<Course> courseList;
+    private List<Course> courseList = new ArrayList<>();
 
     //values
     private User currentUser;
@@ -111,8 +114,25 @@ public class LecturerDashboard extends AppCompatActivity {
         super.onResume();
         currentUser = Paper.book().read(Common.CURRENT_USER);
         initUserProfile();
+        loadCourses();
     }
 
     private void loadCourses() {
+
+        //clear list
+        courseList.clear();
+
+        //init recycler
+        courseRecycler.setHasFixedSize(true);
+        courseRecycler.setLayoutManager(new LinearLayoutManager(this));
+
+        //init list
+        courseList = new Database(this).getAllCreatedCourses(currentUser.getUser_id());
+
+        //adapter
+        adapter = new CourseAdapter(this, this, courseList);
+        courseRecycler.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
     }
 }

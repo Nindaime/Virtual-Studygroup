@@ -17,8 +17,13 @@ public class Common {
     //folder directories
     public static final String BASE_FOLDER = "Studygroup";
     public static final String AVATAR_FOLDER = "Avatars";
+    public static final String COURSE_THUMB_FOLDER = "Course Thumbs";
 
     //intent
     public static final String INTENT_COURSE = "CourseId";
+
+    //subscription type strings
+    public static final String IS_SUBSCRIBED = "Unsubscribe";
+    public static final String NOT_SUBSCRIBED = "Subscribe";
 
 }

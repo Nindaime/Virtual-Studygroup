@@ -2,6 +2,7 @@ package esw.peeplotech.studygroup.student;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -14,13 +15,17 @@ import android.widget.TextView;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import esw.peeplotech.studygroup.Profile;
 import esw.peeplotech.studygroup.R;
 import esw.peeplotech.studygroup.adapters.CourseAdapter;
+import esw.peeplotech.studygroup.adapters.SubscribedCourseAdapter;
+import esw.peeplotech.studygroup.databases.Database;
 import esw.peeplotech.studygroup.lecturer.AddCourse;
 import esw.peeplotech.studygroup.models.Course;
+import esw.peeplotech.studygroup.models.SubscribedCourse;
 import esw.peeplotech.studygroup.models.User;
 import esw.peeplotech.studygroup.util.Common;
 import io.paperdb.Paper;
@@ -34,8 +39,8 @@ public class StudentDashboard extends AppCompatActivity {
     private CardView addCourse;
 
     //data
-    private CourseAdapter adapter;
-    private List<Course> courseList;
+    private SubscribedCourseAdapter adapter;
+    private List<SubscribedCourse> courseList = new ArrayList<>();
 
     //values
     private User currentUser;
@@ -69,7 +74,7 @@ public class StudentDashboard extends AppCompatActivity {
 
         //add course
         addCourse.setOnClickListener(v -> {
-            startActivity(new Intent(this, AddCourse.class));
+            startActivity(new Intent(this, SubscribeToCourse.class));
             overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);
         });
 
@@ -111,8 +116,25 @@ public class StudentDashboard extends AppCompatActivity {
         super.onResume();
         currentUser = Paper.book().read(Common.CURRENT_USER);
         initUserProfile();
+        loadCourses();
     }
 
     private void loadCourses() {
+
+        //clear list
+        courseList.clear();
+
+        //init recycler
+        courseRecycler.setHasFixedSize(true);
+        courseRecycler.setLayoutManager(new LinearLayoutManager(this));
+
+        //init list
+        courseList = new Database(this).getAllSubscribedCourses(currentUser.getUser_id());
+
+        //adapter
+        adapter = new SubscribedCourseAdapter(this, this, courseList);
+        courseRecycler.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
     }
 }

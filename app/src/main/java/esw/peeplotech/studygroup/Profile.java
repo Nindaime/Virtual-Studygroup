@@ -278,6 +278,9 @@ public class Profile extends AppCompatActivity {
         //store local details
         Paper.book().write(Common.CURRENT_USER, userDetails);
 
+        //toast
+        Toast.makeText(this, "Profile Updated", Toast.LENGTH_SHORT).show();
+
         //finish
         onBackPressed();
 

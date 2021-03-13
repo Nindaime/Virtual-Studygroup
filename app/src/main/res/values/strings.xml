@@ -23,4 +23,9 @@
     <string name="subscribe_to_course">Subscribe to course</string>
     <string name="update_profile">Update Profile</string>
     <string name="log_out">Log Out</string>
+    <string name="course_title">Course Title</string>
+    <string name="sub_title">Sub-Title</string>
+    <string name="course_brief">Course Brief</string>
+    <string name="create_course">Create Course</string>
+    <string name="search_for_course">Search For Course . . .</string>
 </resources>
