@@ -28,4 +28,9 @@
     <string name="course_brief">Course Brief</string>
     <string name="create_course">Create Course</string>
     <string name="search_for_course">Search For Course . . .</string>
+    <string name="course_info">Course Info</string>
+    <string name="modules">Modules</string>
+    <string name="assignments">Assignments</string>
+    <string name="view_details"><u>View Details</u></string>
+    <string name="assessment">Assessment</string>
 </resources>
