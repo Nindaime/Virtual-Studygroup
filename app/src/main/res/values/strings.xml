@@ -33,4 +33,20 @@
     <string name="assignments">Assignments</string>
     <string name="view_details"><u>View Details</u></string>
     <string name="assessment">Assessment</string>
+    <string name="module_title">Module Title</string>
+    <string name="module_description">Module Description</string>
+    <string name="add_module">Add Module</string>
+    <string name="add_module_video">Add Module Video</string>
+    <string name="click_icon_to_add_video_material">Click icon to add video material</string>
+    <string name="click_icon_to_add_file_material">Click icon to add file</string>
+    <string name="course_modules">Course Modules</string>
+    <string name="assignment_title">Assignment Title</string>
+    <string name="assignment_score">Assignment Score</string>
+    <string name="score">Score</string>
+    <string name="deadline">Deadline</string>
+    <string name="add_assignment_file">Add Assignment File</string>
+    <string name="add_assignment">Add Assignment</string>
+    <string name="course_assignments">Course Assignments</string>
+    <string name="module_data">Module Data</string>
+    <string name="write_a_contribution">Write a contribution . . .</string>
 </resources>

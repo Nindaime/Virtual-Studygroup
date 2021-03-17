@@ -3,13 +3,18 @@ package esw.peeplotech.studygroup.databases;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import esw.peeplotech.studygroup.models.Assignment;
+import esw.peeplotech.studygroup.models.Chat;
 import esw.peeplotech.studygroup.models.Course;
+import esw.peeplotech.studygroup.models.Module;
+import esw.peeplotech.studygroup.models.SubmittedAssignment;
 import esw.peeplotech.studygroup.models.SubscribedCourse;
 import esw.peeplotech.studygroup.models.User;
 
@@ -157,6 +162,9 @@ public class Database extends SQLiteAssetHelper {
         String query = String.format("DELETE FROM " + USER_TABLE + " WHERE user_id = '%s';", userIdentity);
         db.execSQL(query);
     }
+
+
+
 
 
 
@@ -422,6 +430,414 @@ public class Database extends SQLiteAssetHelper {
     }
 
 
+
+
+
+
+
+
+
+
+    /*---   modules   ---*/
+    //check if module id is already in use
+    public boolean isModuleIdInUse(String moduleId){
+        boolean flag = false;
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = null;
+        String SQLQuery = String.format("SELECT * From " + MODULE_TABLE + " WHERE module_id = '%s';", moduleId);
+        cursor = db.rawQuery(SQLQuery, null);
+        if (cursor.getCount()>0)
+            flag = true;
+        else
+            flag = false;
+        cursor.close();
+        return flag;
+    }
+
+    //create assignment
+    public void createNewModule(String moduleId, String courseId, String moduleTitle, String moduleDesc, String moduleType, String moduleFile){
+        SQLiteDatabase db = getReadableDatabase();
+        String query = String.format("INSERT INTO " + MODULE_TABLE + " (module_id, course_id, module_title, module_desc, module_type, module_file) VALUES('%s', '%s', '%s', '%s', '%s', '%s');",
+                moduleId,
+                courseId,
+                moduleTitle,
+                moduleDesc,
+                moduleType,
+                moduleFile);
+        db.execSQL(query);
+    }
+
+    //get all modules
+    public List<Module> getAllModules(String courseId) {
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = null;
+        String SQLQuery = String.format("SELECT * From " + MODULE_TABLE + " WHERE course_id = '%s';", courseId);
+        cursor = db.rawQuery(SQLQuery, null);
+
+        //init list
+        final List<Module> result = new ArrayList<>();
+
+        //if file exist
+        if (cursor.getCount()>0) {
+
+            if (cursor.moveToFirst()){
+                do {
+                    result.add(new Module(
+                            cursor.getString(cursor.getColumnIndex("module_id")),
+                            cursor.getString(cursor.getColumnIndex("course_id")),
+                            cursor.getString(cursor.getColumnIndex("module_title")),
+                            cursor.getString(cursor.getColumnIndex("module_desc")),
+                            cursor.getString(cursor.getColumnIndex("module_type")),
+                            cursor.getString(cursor.getColumnIndex("module_file"))
+                    ));
+                }while (cursor.moveToNext());
+            }
+        }
+
+        return result;
+    }
+
+    //get module details
+    public Module getModuleDetails(String moduleId){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = null;
+        String SQLQuery = String.format("SELECT * From " + MODULE_TABLE + " WHERE module_id = '%s';", moduleId);
+
+        //make null user
+        Module currentModule = null;
+
+        //run query
+        cursor = db.rawQuery(SQLQuery, null);
+
+        //check again if data exists
+        if (cursor.getCount() > 0){
+
+            cursor.moveToFirst();
+            currentModule = new Module(
+                    cursor.getString(cursor.getColumnIndex("module_id")),
+                    cursor.getString(cursor.getColumnIndex("course_id")),
+                    cursor.getString(cursor.getColumnIndex("module_title")),
+                    cursor.getString(cursor.getColumnIndex("module_desc")),
+                    cursor.getString(cursor.getColumnIndex("module_type")),
+                    cursor.getString(cursor.getColumnIndex("module_file"))
+            );
+
+        }
+        cursor.close();
+
+        return currentModule;
+    }
+
+    //delete module
+    public void deleteModule(String moduleId){
+        SQLiteDatabase db = getReadableDatabase();
+        String query = String.format("DELETE FROM " + MODULE_TABLE + " WHERE module_id = '%s';", moduleId);
+        db.execSQL(query);
+    }
+
+
+
+
+
+
+
+
+
+    /*---   assignments   ---*/
+    //check if module id is already in use
+    public boolean isAssignmentIdInUse(String assignmentId){
+        boolean flag = false;
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = null;
+        String SQLQuery = String.format("SELECT * From " + ASSIGNMENT_TABLE + " WHERE assignment_id = '%s';", assignmentId);
+        cursor = db.rawQuery(SQLQuery, null);
+        if (cursor.getCount()>0)
+            flag = true;
+        else
+            flag = false;
+        cursor.close();
+        return flag;
+    }
+
+    //create assignment
+    public void createNewAssignment(String assignmentId, String assignmentTitle, String score, String deadline, String type, String file, String courseId){
+        SQLiteDatabase db = getReadableDatabase();
+        String query = String.format("INSERT INTO " + ASSIGNMENT_TABLE + " (assignment_id, assignment_title, assignment_score, assignment_deadline, assignment_type, assignment_file, course_id)" +
+                        " VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s');",
+                assignmentId,
+                assignmentTitle,
+                score,
+                deadline,
+                type,
+                file,
+                courseId);
+        db.execSQL(query);
+    }
+
+    //get all assignments
+    public List<Assignment> getAllAssignments(String courseId) {
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = null;
+        String SQLQuery = String.format("SELECT * From " + ASSIGNMENT_TABLE + " WHERE course_id = '%s';", courseId);
+        cursor = db.rawQuery(SQLQuery, null);
+
+        //init list
+        final List<Assignment> result = new ArrayList<>();
+
+        //if file exist
+        if (cursor.getCount()>0) {
+
+            if (cursor.moveToFirst()){
+                do {
+                    result.add(new Assignment(
+                            cursor.getString(cursor.getColumnIndex("assignment_id")),
+                            cursor.getString(cursor.getColumnIndex("assignment_title")),
+                            cursor.getString(cursor.getColumnIndex("assignment_score")),
+                            cursor.getString(cursor.getColumnIndex("assignment_deadline")),
+                            cursor.getString(cursor.getColumnIndex("assignment_type")),
+                            cursor.getString(cursor.getColumnIndex("assignment_file")),
+                            cursor.getString(cursor.getColumnIndex("course_id"))
+                    ));
+                }while (cursor.moveToNext());
+            }
+        }
+
+        return result;
+    }
+
+    //get assignment details
+    public Assignment getAssignmentDetails(String assignmentId){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = null;
+        String SQLQuery = String.format("SELECT * From " + ASSIGNMENT_TABLE + " WHERE assignment_id = '%s';", assignmentId);
+
+        //make null user
+        Assignment currentAssignment = null;
+
+        //run query
+        cursor = db.rawQuery(SQLQuery, null);
+
+        //check again if data exists
+        if (cursor.getCount() > 0){
+
+            cursor.moveToFirst();
+            currentAssignment = new Assignment(
+                    cursor.getString(cursor.getColumnIndex("assignment_id")),
+                    cursor.getString(cursor.getColumnIndex("assignment_title")),
+                    cursor.getString(cursor.getColumnIndex("assignment_score")),
+                    cursor.getString(cursor.getColumnIndex("assignment_deadline")),
+                    cursor.getString(cursor.getColumnIndex("assignment_type")),
+                    cursor.getString(cursor.getColumnIndex("assignment_file")),
+                    cursor.getString(cursor.getColumnIndex("course_id"))
+            );
+
+        }
+        cursor.close();
+
+        return currentAssignment;
+    }
+
+    //delete assignment
+    public void deleteAssignment(String assignmentId){
+        SQLiteDatabase db = getReadableDatabase();
+        String query = String.format("DELETE FROM " + ASSIGNMENT_TABLE + " WHERE assignment_id = '%s';", assignmentId);
+        db.execSQL(query);
+    }
+
+    //create folder table
+    public void createAssignmentSubmissionTable(String tableId){
+        //init db
+        SQLiteDatabase db = getWritableDatabase();
+
+        //create folder query
+        db.execSQL(" CREATE TABLE IF NOT EXISTS " + tableId + " (" +
+                "\"id\"" + " INTEGER NOT NULL UNIQUE," +
+                "\"submission_id\"" + " TEXT NOT NULL, " +
+                "\"student_id\"" + " TEXT NOT NULL, " +
+                "\"assignment_score\"" + " TEXT NOT NULL, " +
+                "\"course_id\"" + " TEXT NOT NULL, " +
+                "\"assignment_file\"" + " TEXT NOT NULL, " +
+                "PRIMARY KEY(" + "\"id\" AUTOINCREMENT));");
+    }
+
+    //check if submitted id is already in use
+    public boolean isSubmittedAssignmentIdInUse(String tableId, String submissionId){
+        boolean flag = false;
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = null;
+        String SQLQuery = String.format("SELECT * From " + tableId + " WHERE submission_id = '%s';", submissionId);
+        cursor = db.rawQuery(SQLQuery, null);
+        if (cursor.getCount()>0)
+            flag = true;
+        else
+            flag = false;
+        cursor.close();
+        return flag;
+    }
+
+    //submit assignment
+    public void submitAssignment(String tableId, String submissionId, String studentId, String score, String course, String file){
+        SQLiteDatabase db = getReadableDatabase();
+        String query = String.format("INSERT INTO " + tableId + " (submission_id, student_id, assignment_score, course_id, assignment_file)" +
+                        " VALUES('%s', '%s', '%s', '%s', '%s');",
+                submissionId,
+                studentId,
+                score,
+                course,
+                file);
+        db.execSQL(query);
+    }
+
+    //get submitted assignment details
+    public SubmittedAssignment getSubmittedAssignmentDetails(String tableId, String studentId){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = null;
+        String SQLQuery = String.format("SELECT * From " + tableId + " WHERE student_id = '%s';", studentId);
+
+        //make null user
+        SubmittedAssignment currentAssignment = null;
+
+        //run query
+        cursor = db.rawQuery(SQLQuery, null);
+
+        //check again if data exists
+        if (cursor.getCount() > 0){
+
+            cursor.moveToFirst();
+            currentAssignment = new SubmittedAssignment(
+                    cursor.getString(cursor.getColumnIndex("submission_id")),
+                    cursor.getString(cursor.getColumnIndex("student_id")),
+                    cursor.getString(cursor.getColumnIndex("assignment_score")),
+                    cursor.getString(cursor.getColumnIndex("course_id")),
+                    cursor.getString(cursor.getColumnIndex("assignment_file"))
+            );
+
+        }
+        cursor.close();
+
+        return currentAssignment;
+    }
+
+    //get all students submitted assignments
+    public List<SubmittedAssignment> getAllSubmittedAssignments(String tableId) {
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = null;
+        String SQLQuery = String.format("SELECT * From " + tableId + ";");
+        cursor = db.rawQuery(SQLQuery, null);
+
+        //init list
+        final List<SubmittedAssignment> result = new ArrayList<>();
+
+        //if file exist
+        if (cursor.getCount()>0) {
+
+            if (cursor.moveToFirst()){
+                do {
+                    result.add(new SubmittedAssignment(
+                            cursor.getString(cursor.getColumnIndex("submission_id")),
+                            cursor.getString(cursor.getColumnIndex("student_id")),
+                            cursor.getString(cursor.getColumnIndex("assignment_score")),
+                            cursor.getString(cursor.getColumnIndex("course_id")),
+                            cursor.getString(cursor.getColumnIndex("assignment_file"))
+                    ));
+                }while (cursor.moveToNext());
+            }
+        }
+
+        return result;
+    }
+
+    //score assignment
+    public void scoreAssignment(String tableId, String submissionId, String score){
+        SQLiteDatabase db = getReadableDatabase();
+        String query = String.format("UPDATE " + tableId + " SET assignment_score = '%s' WHERE submission_id = '%s';",
+                score,
+                submissionId);
+        db.execSQL(query);
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /*---   messaging   ---*/
+    //create folder table
+    public void createChatTable(String tableId){
+        //init db
+        SQLiteDatabase db = getWritableDatabase();
+
+        //create folder query
+        db.execSQL(" CREATE TABLE IF NOT EXISTS " + tableId + " (" +
+                "\"id\"" + " INTEGER NOT NULL UNIQUE," +
+                "\"sender\"" + " TEXT NOT NULL, " +
+                "\"message\"" + " TEXT NOT NULL, " +
+                "\"is_approved\"" + " TEXT NOT NULL, " +
+                "PRIMARY KEY(" + "\"id\" AUTOINCREMENT));");
+    }
+
+    //send message
+    public void sendMessage(String tableId, String senderId, String message, String isApproved){
+        SQLiteDatabase db = getReadableDatabase();
+        String query = String.format("INSERT INTO " + tableId + " (sender, message, is_approved) VALUES('%s', '%s', '%s');",
+                senderId,
+                message,
+                isApproved);
+        db.execSQL(query);
+    }
+
+    //approve and disprove message
+    public void changeMessageStatus(String tableId, int messageId, String status){
+        SQLiteDatabase db = getReadableDatabase();
+        String query = String.format("UPDATE " + tableId + " SET is_approved = '%s' WHERE id = '%d';",
+                status,
+                messageId);
+        db.execSQL(query);
+    }
+
+    //get all messages
+    public List<Chat> getMessages(String tableId) {
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = null;
+        String SQLQuery = String.format("SELECT * From " + tableId + ";");
+        cursor = db.rawQuery(SQLQuery, null);
+
+        //init list
+        final List<Chat> result = new ArrayList<>();
+
+        //if file exist
+        if (cursor.getCount()>0) {
+
+            if (cursor.moveToFirst()){
+                do {
+                    result.add(new Chat(
+                            cursor.getInt(cursor.getColumnIndex("id")),
+                            cursor.getString(cursor.getColumnIndex("sender")),
+                            cursor.getString(cursor.getColumnIndex("message")),
+                            cursor.getString(cursor.getColumnIndex("is_approved"))
+                    ));
+                }while (cursor.moveToNext());
+            }
+        }
+
+        return result;
+    }
+
+    //delete message
+    public void deleteMessage(String tableId, int messageId){
+        SQLiteDatabase db = getReadableDatabase();
+        String query = String.format("DELETE FROM " + tableId + " WHERE id = '%i';", messageId);
+        db.execSQL(query);
+    }
 
 
 }

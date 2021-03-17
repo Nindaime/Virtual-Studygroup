@@ -18,12 +18,24 @@ public class Common {
     public static final String BASE_FOLDER = "Studygroup";
     public static final String AVATAR_FOLDER = "Avatars";
     public static final String COURSE_THUMB_FOLDER = "Course Thumbs";
+    public static final String MODULE_FOLDER = "Course Modules";
+    public static final String ASSIGNMENT_FOLDER = "Course Assignments";
 
     //intent
     public static final String INTENT_COURSE = "CourseId";
+    public static final String INTENT_MODULE = "ModuleId";
 
     //subscription type strings
     public static final String IS_SUBSCRIBED = "Unsubscribe";
     public static final String NOT_SUBSCRIBED = "Subscribe";
+
+    //message approvals
+    public static final String IS_APPROVED = "Approved";
+    public static final String NOT_APPROVED = "Unapproved";
+
+    //dynamic table suffixes
+    public static final String MODULE_CHAT = "_MODULE_CHAT";
+    public static final String ASSIGNMENT_CHAT = "_ASSIGNMENT_CHAT";
+    public static final String ASSESSMENT = "_ASSESSMENT";
 
 }

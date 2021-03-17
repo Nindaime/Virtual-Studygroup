@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="6dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/themeGrey"
+        android:layout_alignParentBottom="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:weightSum="10">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:id="@+id/senderImage"
+            android:src="@drawable/ic_avatar"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:riv_corner_radius="10dp"
+            app:riv_border_color="@color/white"
+            app:riv_border_width="1dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text=""
+                    android:textSize="13sp"
+                    android:textColor="@color/themeDarkGreen"
+                    android:layout_marginEnd="15dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/userName"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text=""
+                    android:textSize="13sp"
+                    android:textColor="@color/editTextRingGrey"
+                    android:background="@drawable/btn_ring_grey_ripple"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/userType"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="17dp"
+                    android:src="@drawable/ic_menu"
+                    android:id="@+id/messageOption"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="9"
+                    android:layout_height="wrap_content"
+                    tools:text="Intro to React"
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/theMessage"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="20dp"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="end|bottom"
+                    android:layout_margin="7dp"
+                    android:src="@drawable/ic_verified"
+                    android:id="@+id/verificationProcess"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

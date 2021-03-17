@@ -17,7 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".Profile"></activity>
+        <activity android:name=".AssignmentDetail"></activity>
+        <activity android:name=".ModuleDetail" />
+        <activity android:name=".Profile" />
         <activity android:name=".student.SubscribeToCourse" />
         <activity android:name=".lecturer.AddCourse" />
         <activity android:name=".student.StudentCourse" />

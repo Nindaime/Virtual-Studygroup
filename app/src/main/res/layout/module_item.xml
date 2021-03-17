@@ -7,10 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="10dp"
     app:cardElevation="3dp"
-    android:layout_marginTop="7dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginBottom="3dp"
+    android:layout_margin="12dp"
     app:cardBackgroundColor="@color/white">
 
     <LinearLayout
@@ -43,7 +40,7 @@
             android:layout_marginEnd="15dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="5dp"
-            android:maxLines="1"
+            android:maxLines="2"
             android:ellipsize="end"
             android:id="@+id/moduleBrief"/>
 
