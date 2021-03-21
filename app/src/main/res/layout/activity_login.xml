@@ -81,7 +81,7 @@
                 android:textSize="16sp"
                 android:textColor="@color/colorAccent"
                 android:textColorHint="@color/transparentBlack"
-                android:hint="@string/user_identification"
+                android:hint="e.g Ayomide1"
                 android:id="@+id/userIdentification"/>
 
         </LinearLayout>

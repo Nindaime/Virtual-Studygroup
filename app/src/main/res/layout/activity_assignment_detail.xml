@@ -1,9 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/offWhiteBack"
     tools:context=".AssignmentDetail">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/appTopBar">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_back"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"
+            app:tint="@color/white"
+            android:id="@+id/backBtn"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Assignment"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appTopBar"
+        android:layout_above="@+id/chatLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/assTitle"
+                android:text=""
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:padding="4dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/assScore"
+                android:text=""
+                android:textColor="@color/colorAccent"
+                android:textSize="13sp"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="6dp"
+                android:padding="4dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/assDeadline"
+                android:text=""
+                android:textColor="@color/themeDarkGreen"
+                android:textSize="13sp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:padding="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="Open"
+                android:textSize="16sp"
+                android:textColor="@color/themeDarkGreen"
+                android:textStyle="bold"
+                android:drawablePadding="10dp"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/viewAss"
+                app:drawableStartCompat="@drawable/ic_open_assignment" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="View Submissions"
+                android:textSize="16sp"
+                android:textColor="@color/themeDarkGreen"
+                android:textStyle="bold"
+                android:drawablePadding="10dp"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/viewSubmissions"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_view_submissions" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="Submit Assignment"
+                android:textSize="16sp"
+                android:textColor="@color/themeDarkGreen"
+                android:textStyle="bold"
+                android:drawablePadding="10dp"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone"
+                android:id="@+id/submitAssignment"
+                app:drawableStartCompat="@drawable/ic_submit_assignment" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Group Discussion"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="20dp"
+                android:padding="4dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/discussionRecycler"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/chatLayout"
+        android:background="@color/colorPrimaryDark">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/edt_solid_white"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:inputType="textCapSentences"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/transparentBlack"
+            android:hint="@string/write_a_contribution"
+            android:id="@+id/chatEdt"
+            android:layout_toStartOf="@+id/sendBtn"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_send"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_centerVertical="true"
+            app:tint="@color/white"
+            android:id="@+id/sendBtn"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

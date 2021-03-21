@@ -60,10 +60,44 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/userAvatar"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_avatar"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    app:riv_corner_radius="7dp"
+                    app:riv_border_color="@color/themeDarkGreen"
+                    app:riv_border_width="1dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tap to add"
+                    android:textSize="13sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:id="@+id/changeAvatar"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -112,7 +146,7 @@
                     android:textSize="16sp"
                     android:textColor="@color/colorAccent"
                     android:textColorHint="@color/transparentBlack"
-                    android:hint="@string/user_identification"
+                    android:hint="e.g Ayomide1"
                     android:id="@+id/userIdentification"/>
 
             </LinearLayout>
@@ -146,7 +180,7 @@
                     android:textSize="16sp"
                     android:textColor="@color/colorAccent"
                     android:textColorHint="@color/transparentBlack"
-                    android:hint="@string/first_name"
+                    android:hint="e.g Ayomide"
                     android:id="@+id/firstName"/>
 
             </LinearLayout>
@@ -180,7 +214,7 @@
                     android:textSize="16sp"
                     android:textColor="@color/colorAccent"
                     android:textColorHint="@color/transparentBlack"
-                    android:hint="@string/last_name"
+                    android:hint="e.g Adeshina"
                     android:id="@+id/lastName"/>
 
             </LinearLayout>

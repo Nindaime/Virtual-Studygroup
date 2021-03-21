@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_gravity="center"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="16. "
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="15dp"
+        android:gravity="center_vertical"
+        android:id="@+id/questionNumber"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginEnd="15dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Intro to React"
+            android:textSize="17sp"
+            android:textColor="@color/black"
+            android:id="@+id/question"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:id="@+id/answerRadio">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioA"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="4dp"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioB"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="4dp"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioC"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="4dp"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioD"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="4dp"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioE"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="4dp"/>
+
+        </RadioGroup>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            android:animateLayoutChanges="true"
+            android:background="@drawable/btn_solid_green_ripple"
+            android:layout_gravity="end"
+            android:id="@+id/nextBtn">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Next"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:id="@+id/addText"/>
+
+            <com.wang.avi.AVLoadingIndicatorView
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                app:indicatorColor="@color/white"
+                android:visibility="gone"
+                app:indicatorName="LineSpinFadeLoaderIndicator"
+                android:id="@+id/addProgress"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

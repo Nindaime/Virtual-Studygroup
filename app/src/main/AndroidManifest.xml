@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="esw.peeplotech.studygroup">
+    package="com.peeplotech.studygroup">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
 
     <application
-        android:name=".util.AppClass"
+        android:name="com.peeplotech.studygroup.util.AppClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,17 +17,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".AssignmentDetail"></activity>
-        <activity android:name=".ModuleDetail" />
-        <activity android:name=".Profile" />
-        <activity android:name=".student.SubscribeToCourse" />
-        <activity android:name=".lecturer.AddCourse" />
-        <activity android:name=".student.StudentCourse" />
-        <activity android:name=".lecturer.LecturerCourse" />
-        <activity android:name=".student.StudentDashboard" />
-        <activity android:name=".lecturer.LecturerDashboard" />
+        <activity android:name="com.peeplotech.studygroup.StudentRecords"></activity>
+        <activity android:name="com.peeplotech.studygroup.student.StudentAssessment" />
+        <activity android:name="com.peeplotech.studygroup.AssignmentDetail" />
+        <activity android:name="com.peeplotech.studygroup.ModuleDetail" />
+        <activity android:name="com.peeplotech.studygroup.Profile" />
+        <activity android:name="com.peeplotech.studygroup.student.SubscribeToCourse" />
+        <activity android:name="com.peeplotech.studygroup.lecturer.AddCourse" />
+        <activity android:name="com.peeplotech.studygroup.student.StudentCourse" />
+        <activity android:name="com.peeplotech.studygroup.lecturer.LecturerCourse" />
+        <activity android:name="com.peeplotech.studygroup.student.StudentDashboard" />
+        <activity android:name="com.peeplotech.studygroup.lecturer.LecturerDashboard" />
         <activity
-            android:name=".Splash"
+            android:name="com.peeplotech.studygroup.Splash"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,21 +38,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".OnBoardingChoice"
+            android:name="com.peeplotech.studygroup.OnBoardingChoice"
             android:theme="@style/OnBoardTheme" />
         <activity
-            android:name=".Registration"
+            android:name="com.peeplotech.studygroup.Registration"
             android:configChanges="keyboard|keyboardHidden"
             android:theme="@style/OnBoardTheme"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Login"
+            android:name="com.peeplotech.studygroup.Login"
             android:configChanges="keyboard|keyboardHidden"
             android:theme="@style/OnBoardTheme"
             android:windowSoftInputMode="adjustResize" />
 
         <provider
-            android:name=".util.GenericFileProvider"
+            android:name="com.peeplotech.studygroup.util.GenericFileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">

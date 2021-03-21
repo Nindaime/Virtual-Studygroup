@@ -262,14 +262,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/view_details"
+                        android:text="@string/view_results"
                         android:textSize="15sp"
                         android:textColor="@color/colorAccent"
                         android:textStyle="bold"
                         android:maxLines="1"
                         android:ellipsize="end"
                         android:layout_marginTop="10dp"
-                        android:id="@+id/viewAssessmentDets"/>
+                        android:id="@+id/viewResultsDets"/>
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="45dp"

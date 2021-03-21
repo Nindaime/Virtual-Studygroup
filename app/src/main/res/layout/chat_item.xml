@@ -45,12 +45,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:orientation="horizontal">
+                android:layout_marginEnd="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -62,7 +61,8 @@
                     android:maxLines="1"
                     android:ellipsize="end"
                     android:gravity="center"
-                    android:layout_gravity="center_vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
                     android:id="@+id/userName"/>
 
                 <TextView
@@ -77,20 +77,22 @@
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
                     android:gravity="center"
-                    android:layout_gravity="center_vertical"
+                    android:layout_toStartOf="@+id/messageOption"
+                    android:layout_centerVertical="true"
                     android:id="@+id/userType"/>
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:adjustViewBounds="true"
-                    android:layout_gravity="center_vertical"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginStart="17dp"
-                    android:src="@drawable/ic_menu"
+                    android:src="@drawable/ic_check_bx"
                     android:id="@+id/messageOption"
-                    android:visibility="gone"/>
+                    android:visibility="invisible"/>
 
-            </LinearLayout>
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -105,7 +107,6 @@
                     android:layout_width="0dp"
                     android:layout_weight="9"
                     android:layout_height="wrap_content"
-                    tools:text="Intro to React"
                     android:textSize="15sp"
                     android:textColor="@color/black"
                     android:layout_marginEnd="15dp"

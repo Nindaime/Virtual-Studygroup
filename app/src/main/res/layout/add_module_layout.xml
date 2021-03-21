@@ -53,7 +53,7 @@
                     android:textSize="16sp"
                     android:textColor="@color/colorAccent"
                     android:textColorHint="@color/transparentBlack"
-                    android:hint="@string/module_title"
+                    android:hint="e.g String Theory"
                     android:id="@+id/moduleTitle"/>
 
             </LinearLayout>
@@ -88,7 +88,7 @@
                     android:lines="5"
                     android:textColor="@color/colorAccent"
                     android:textColorHint="@color/transparentBlack"
-                    android:hint="@string/module_description"
+                    android:hint="e.g Modern beliefs and misconceptions on string thoery. . ."
                     android:id="@+id/moduleDescription"/>
 
             </LinearLayout>

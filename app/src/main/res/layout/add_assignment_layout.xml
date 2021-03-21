@@ -35,7 +35,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/assignment_title"
+                    android:text="Assignment Brief"
                     android:textColor="@color/colorAccent"
                     android:textSize="13sp"
                     android:textStyle="normal"
@@ -53,7 +53,7 @@
                     android:textSize="16sp"
                     android:textColor="@color/colorAccent"
                     android:textColorHint="@color/transparentBlack"
-                    android:hint="@string/assignment_title"
+                    android:hint="e.g String Theory Module "
                     android:id="@+id/assignmentTitle"/>
 
             </LinearLayout>
@@ -93,7 +93,7 @@
                         android:textSize="16sp"
                         android:textColor="@color/colorAccent"
                         android:textColorHint="@color/transparentBlack"
-                        android:hint="@string/score"
+                        android:hint="e.g 20"
                         android:id="@+id/assignmentScore"/>
 
                 </LinearLayout>
@@ -126,7 +126,7 @@
                         android:textSize="16sp"
                         android:textColor="@color/colorAccent"
                         android:textColorHint="@color/transparentBlack"
-                        android:hint="@string/deadline"
+                        android:hint="e.g 10/10/3010"
                         android:id="@+id/assignmentDeadline"/>
 
                 </LinearLayout>

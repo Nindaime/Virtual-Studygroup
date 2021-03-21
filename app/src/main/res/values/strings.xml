@@ -2,7 +2,7 @@
     <string name="app_name">Studygroup</string>
     <string name="register">Register</string>
     <string name="log_in">Log In</string>
-    <string name="welcome_to_virtual_studygroup">Welcome to Virtual Studygroup</string>
+    <string name="welcome_to_virtual_studygroup">Welcome to Studygroup</string>
     <string name="welcom_text">Create your free account or log in if you are not a new user</string>
     <string name="registration">Registration</string>
     <string name="lets_get_you_set_up">Lets get you set up</string>
@@ -27,7 +27,7 @@
     <string name="sub_title">Sub-Title</string>
     <string name="course_brief">Course Brief</string>
     <string name="create_course">Create Course</string>
-    <string name="search_for_course">Search For Course . . .</string>
+    <string name="search_for_course">Search Course Codes . . .</string>
     <string name="course_info">Course Info</string>
     <string name="modules">Modules</string>
     <string name="assignments">Assignments</string>
@@ -49,4 +49,6 @@
     <string name="course_assignments">Course Assignments</string>
     <string name="module_data">Module Data</string>
     <string name="write_a_contribution">Write a contribution . . .</string>
+    <string name="u_take_assessment_u"><u>Take Assessment</u></string>
+    <string name="view_results"><u>View Results</u></string>
 </resources>
