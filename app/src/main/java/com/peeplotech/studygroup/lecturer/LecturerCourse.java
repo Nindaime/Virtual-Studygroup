@@ -679,65 +679,48 @@ public class LecturerCourse extends AppCompatActivity {
                 final String[] split = file.getPath().split(":");//split the path.
                 Log.d("FileError", "File Url: " + Environment.getExternalStorageDirectory() + "/" + split[1]);
 
-                if (split[1].endsWith(".csv")) {
-
-                    String theFileUrl = null;
-                    if (assessmentUri.getPath().contains("home:")) {
-                        theFileUrl = Environment.getExternalStorageDirectory() + "/Documents/" + split[1];
-                    } else {
-                        theFileUrl = Environment.getExternalStorageDirectory() + "/" + split[1];
-                    }
+                String theFileUrl = null;
+                if (assessmentUri.getPath().contains("home:")) {
+                    theFileUrl = Environment.getExternalStorageDirectory() + "/Documents/" + split[1];
+                } else {
+                    theFileUrl = Environment.getExternalStorageDirectory() + "/" + split[1];
+                }
 
 
-                    //read csv
-                    try {
-                        CSVReader reader = new CSVReader(new FileReader(theFileUrl));
-                        String[] nextLine;
-                        int count = 0;
-                        reader.readNext();
+                //read csv
+                try {
+                    CSVReader reader = new CSVReader(new FileReader(theFileUrl));
+                    String[] nextLine;
+                    int count = 0;
+                    reader.readNext();
 
-                        while ((nextLine = reader.readNext()) != null) {
-                            // nextLine[] is an array of values from the line
-                            count++;
+                    while ((nextLine = reader.readNext()) != null) {
+                        // nextLine[] is an array of values from the line
+                        count++;
 
-                            if (nextLine.length == 7) {
-                                String assessmentId = generateRandomToken();
+                        if (nextLine.length == 7) {
+                            String assessmentId = generateRandomToken();
 
-                                if (!new Database(this).isQuestionAlreadySet(courseId, nextLine[0])) {
+                            if (!new Database(this).isQuestionAlreadySet(courseId, nextLine[0])) {
 
-                                    new Database(this).addNewAssessmentQuestion(assessmentId, courseId, currentUser.getUser_id(), nextLine[0], nextLine[1], nextLine[2], nextLine[3], nextLine[4], nextLine[5], nextLine[6]);
+                                new Database(this).addNewAssessmentQuestion(assessmentId, courseId, currentUser.getUser_id(), nextLine[0], nextLine[1], nextLine[2], nextLine[3], nextLine[4], nextLine[5], nextLine[6]);
 
-                                }
                             }
-
                         }
 
-                    } catch (IOException e) {
                     }
 
-                    //clean action
-                    assessmentUri = null;
-
-                    //refresh
-                    initializeAssessment();
-
-                    //clean
-                    addAssessmentDialog.dismiss();
-
-                } else {
-
-                    Toast.makeText(this, "Select the correct file type", Toast.LENGTH_SHORT).show();
-
-                    //start loading
-                    addBtn.setEnabled(true);
-                    fileImage.setEnabled(true);
-                    addProgress.setVisibility(View.GONE);
-                    addText.setVisibility(View.VISIBLE);
-
-                    //clean action
-                    assessmentUri = null;
-
+                } catch (IOException e) {
                 }
+
+                //clean action
+                assessmentUri = null;
+
+                //refresh
+                initializeAssessment();
+
+                //clean
+                addAssessmentDialog.dismiss();
 
             }
 
