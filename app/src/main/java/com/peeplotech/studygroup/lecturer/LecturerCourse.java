@@ -677,50 +677,67 @@ public class LecturerCourse extends AppCompatActivity {
 
                 File file = new File(assessmentUri.getPath());//create path from uri
                 final String[] split = file.getPath().split(":");//split the path.
-                Log.d("FileError", "File Url: " + split[1]);
+                Log.d("FileError", "File Url: " + Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + split[1]);
 
-                String theFileUrl = null;
-                if (assessmentUri.getPath().contains("home:")) {
-                    theFileUrl = split[1];
-                } else {
-                    theFileUrl = split[1];
-                }
+                if (split[1].endsWith(".csv")) {
 
-
-                //read csv
-                try {
-                    CSVReader reader = new CSVReader(new FileReader(theFileUrl));
-                    String[] nextLine;
-                    int count = 0;
-                    reader.readNext();
-
-                    while ((nextLine = reader.readNext()) != null) {
-                        // nextLine[] is an array of values from the line
-                        count++;
-
-                        if (nextLine.length == 7) {
-                            String assessmentId = generateRandomToken();
-
-                            if (!new Database(this).isQuestionAlreadySet(courseId, nextLine[0])) {
-
-                                new Database(this).addNewAssessmentQuestion(assessmentId, courseId, currentUser.getUser_id(), nextLine[0], nextLine[1], nextLine[2], nextLine[3], nextLine[4], nextLine[5], nextLine[6]);
-
-                            }
-                        }
-
+                    String theFileUrl = null;
+                    if (assessmentUri.getPath().contains("home:")) {
+                        theFileUrl = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Documents/" + split[1];
+                    } else {
+                        theFileUrl = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + split[1];
                     }
 
-                } catch (IOException e) {
+
+                    //read csv
+                    try {
+                        CSVReader reader = new CSVReader(new FileReader(theFileUrl));
+                        String[] nextLine;
+                        int count = 0;
+                        reader.readNext();
+
+                        while ((nextLine = reader.readNext()) != null) {
+                            // nextLine[] is an array of values from the line
+                            count++;
+
+                            if (nextLine.length == 7) {
+                                String assessmentId = generateRandomToken();
+
+                                if (!new Database(this).isQuestionAlreadySet(courseId, nextLine[0])) {
+
+                                    new Database(this).addNewAssessmentQuestion(assessmentId, courseId, currentUser.getUser_id(), nextLine[0], nextLine[1], nextLine[2], nextLine[3], nextLine[4], nextLine[5], nextLine[6]);
+
+                                }
+                            }
+
+                        }
+
+                    } catch (IOException e) {
+                    }
+
+                    //clean action
+                    assessmentUri = null;
+
+                    //refresh
+                    initializeAssessment();
+
+                    //clean
+                    addAssessmentDialog.dismiss();
+
+                } else {
+
+                    Toast.makeText(this, "Select the correct file type", Toast.LENGTH_SHORT).show();
+
+                    //start loading
+                    addBtn.setEnabled(true);
+                    fileImage.setEnabled(true);
+                    addProgress.setVisibility(View.GONE);
+                    addText.setVisibility(View.VISIBLE);
+
+                    //clean action
+                    assessmentUri = null;
+
                 }
-
-                //clean action
-                assessmentUri = null;
-
-                //refresh
-                initializeAssessment();
-
-                //clean
-                addAssessmentDialog.dismiss();
 
             }
 
