@@ -677,13 +677,13 @@ public class LecturerCourse extends AppCompatActivity {
 
                 File file = new File(assessmentUri.getPath());//create path from uri
                 final String[] split = file.getPath().split(":");//split the path.
-                Log.d("FileError", "File Url: " + Environment.getExternalStorageDirectory() + "/" + split[1]);
+                Log.d("FileError", "File Url: " + split[1]);
 
                 String theFileUrl = null;
                 if (assessmentUri.getPath().contains("home:")) {
-                    theFileUrl = Environment.getExternalStorageDirectory() + "/Documents/" + split[1];
+                    theFileUrl = split[1];
                 } else {
-                    theFileUrl = Environment.getExternalStorageDirectory() + "/" + split[1];
+                    theFileUrl = split[1];
                 }
 
 
