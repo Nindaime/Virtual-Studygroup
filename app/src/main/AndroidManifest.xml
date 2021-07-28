@@ -51,6 +51,11 @@
             android:configChanges="keyboard|keyboardHidden"
             android:theme="@style/OnBoardTheme"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".Questionnaire"
+            android:configChanges="keyboard|keyboardHidden"
+            android:theme="@style/OnBoardTheme"
+            android:windowSoftInputMode="adjustResize" />
 
         <provider
             android:name=".util.GenericFileProvider"

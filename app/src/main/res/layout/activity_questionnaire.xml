@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Questionaire">
+    tools:context=".Questionnaire">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="@string/questionaire_title"
+            android:text="@string/questionnaire_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView

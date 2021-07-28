@@ -8,6 +8,8 @@ public class User {
     private String password;
     private String user_type;
     private String user_avatar;
+    private  float dyslexic_score;
+    private Boolean isDyslexic;
 
     public User() {
     }
@@ -63,6 +65,22 @@ public class User {
 
     public String getUser_avatar() {
         return user_avatar;
+    }
+
+    public float getDyslexic_score() {
+        return dyslexic_score;
+    }
+
+    public void setDyslexic_score(float dyslexic_score) {
+        this.dyslexic_score = dyslexic_score;
+    }
+
+    public Boolean getDyslexic() {
+        return isDyslexic;
+    }
+
+    public void setDyslexic(Boolean dyslexic) {
+        isDyslexic = dyslexic;
     }
 
     public void setUser_avatar(String user_avatar) {

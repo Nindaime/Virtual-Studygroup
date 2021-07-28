@@ -74,6 +74,18 @@ public class Database extends SQLiteAssetHelper {
         db.execSQL(query);
     }
 
+    public void updateUserDyslexicDetail(String userIdentity, float dyslexicScore ){
+        SQLiteDatabase db = getReadableDatabase();
+        Boolean isDyslexic = false;
+        if(dyslexicScore < 2){
+            isDyslexic = true;
+        }
+        String query = String.format("UPDATE " + USER_TABLE+ " SET dyslexic_score = '%f', is_dyslexic='%b' WHERE user_id = '%s';",
+                dyslexicScore,isDyslexic,userIdentity
+                );
+        db.execSQL(query);
+    }
+
     //login user
     public boolean loginUser(String userIdentity, String password){
         boolean isSuccess = false;

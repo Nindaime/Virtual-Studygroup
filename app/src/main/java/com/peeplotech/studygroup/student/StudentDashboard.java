@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.TextView;
 
 import com.makeramen.roundedimageview.RoundedImageView;
@@ -25,6 +26,7 @@ import com.peeplotech.studygroup.databases.Database;
 import com.peeplotech.studygroup.models.SubscribedCourse;
 import com.peeplotech.studygroup.models.User;
 import com.peeplotech.studygroup.util.Common;
+
 import io.paperdb.Paper;
 
 public class StudentDashboard extends AppCompatActivity {
@@ -34,6 +36,7 @@ public class StudentDashboard extends AppCompatActivity {
     private RoundedImageView userAvatar;
     private RecyclerView courseRecycler;
     private CardView addCourse;
+    private TextView dyslexicScore;
 
     //data
     private SubscribedCourseAdapter adapter;
@@ -46,6 +49,9 @@ public class StudentDashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_dashboard);
+        Intent intent = getIntent();
+        Boolean isNewUser = intent.getBooleanExtra("newUser", false);
+
 
         //value
         currentUser = Paper.book().read(Common.CURRENT_USER);
@@ -56,6 +62,12 @@ public class StudentDashboard extends AppCompatActivity {
         userAvatar = findViewById(R.id.userAvatar);
         courseRecycler = findViewById(R.id.courseRecycler);
         addCourse = findViewById(R.id.addCourse);
+        dyslexicScore = findViewById(R.id.dyslexicScore);
+
+        if (isNewUser == true) {
+            dyslexicScore.setText(String.valueOf(intent.getFloatExtra("score", 0)));
+            dyslexicScore.setVisibility(View.VISIBLE);
+        }
 
         //init
         initialize();
@@ -84,7 +96,7 @@ public class StudentDashboard extends AppCompatActivity {
         userId.setText("@" + currentUser.getUser_id());
 
 
-        if (!TextUtils.isEmpty(currentUser.getUser_avatar())){
+        if (!TextUtils.isEmpty(currentUser.getUser_avatar())) {
 
             Picasso.get()
                     .load(Uri.parse(currentUser.getUser_avatar()))
@@ -101,7 +113,7 @@ public class StudentDashboard extends AppCompatActivity {
 
     }
 
-    private void openProfile(){
+    private void openProfile() {
 
         startActivity(new Intent(this, Profile.class));
         overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);

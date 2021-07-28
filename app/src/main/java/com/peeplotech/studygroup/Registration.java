@@ -447,9 +447,16 @@ public class Registration extends AppCompatActivity {
             }
 
             //update ui
-            Intent homeIntent = new Intent(this, StudentDashboard.class);
-            homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(homeIntent);
+//            Intent homeIntent = new Intent(this, StudentDashboard.class);
+//            homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+//            startActivity(homeIntent);
+//            finish();
+//            overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);
+
+            Intent questionnaireIntent = new Intent(this, Questionnaire.class);
+            questionnaireIntent.putExtra("userId", userDetails.getUser_id());
+            questionnaireIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(questionnaireIntent);
             finish();
             overridePendingTransition(R.anim.slide_left, R.anim.slide_out_left);
 

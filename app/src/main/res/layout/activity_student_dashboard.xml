@@ -54,6 +54,19 @@
                     android:maxLines="1"
                     android:id="@+id/userId"/>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:gravity="start"
+                    android:layout_gravity="center_vertical"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:visibility="invisible"
+                    android:id="@+id/dyslexicScore"/>
+
             </LinearLayout>
 
             <com.makeramen.roundedimageview.RoundedImageView
