@@ -1,0 +1,9 @@
+<resources>
+    <declare-styleable name="TextWithSpeaker">
+
+        <attr name="textHeight" format="integer" />
+        <attr name="textColor" format="color" />
+        <attr name="textValue" format="string" />
+
+    </declare-styleable>
+</resources>

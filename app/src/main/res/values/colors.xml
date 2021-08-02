@@ -11,7 +11,6 @@
     <color name="offWhiteBack">#ECF0EB</color>
 
 
-
     <color name="themeYellow">#ffdd00</color>
     <color name="themeDarkYellow">#A89411</color>
     <color name="themeLightBlue">#65a9f8</color>
@@ -27,4 +26,8 @@
     <color name="offBlack">#252424</color>
     <color name="veryLightBlueBack">#DEE7EE</color>
     <color name="translucentWhite">#F2FFFFFF</color>
+    <color name="light_blue_400">#FF29B6F6</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="gray_400">#FFBDBDBD</color>
+    <color name="gray_600">#FF757575</color>
 </resources>

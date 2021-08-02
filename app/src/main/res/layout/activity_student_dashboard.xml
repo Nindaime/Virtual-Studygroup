@@ -67,6 +67,22 @@
                     android:visibility="invisible"
                     android:id="@+id/dyslexicScore"/>
 
+                <com.peeplotech.studygroup.TextWithSpeaker
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    app:textValue="My name is amaobi"
+                    app:textHeight="50"
+                    app:textColor="@color/white"
+                    />
+
+                <com.peeplotech.studygroup.EditTextWithSpeaker
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    app:textValue="My name is amaobi"
+                    app:textHeight="50"
+                    app:textColor="@color/white"
+                    />
+
             </LinearLayout>
 
             <com.makeramen.roundedimageview.RoundedImageView

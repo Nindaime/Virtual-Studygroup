@@ -58,11 +58,11 @@
     <string name="number3">3)</string>
     <string name="number4">4)</string>
     <string name="number5">5)</string>
-    <string name="firstQuestion">What is a Call Sign?</string>
-    <string name="secondQuestion">Why did you kill the dog?</string>
-    <string name="thirdQuestion">What is the capital of Nigeria?</string>
-    <string name="fourthQuestion">Why do they fight?</string>
-    <string name="fifthQuestion">Why do they keep getting deported?</string>
+    <string name="firstQuestion">1. What is a Call Sign?</string>
+    <string name="secondQuestion">2. Why did you kill the dog?</string>
+    <string name="thirdQuestion">3. What is the capital of Nigeria?</string>
+    <string name="fourthQuestion">4. Why do they fight?</string>
+    <string name="fifthQuestion">5. Why do they keep getting deported?</string>
     <string name="firstQuestionFirstOption">Sacrecrow</string>
     <string name="firstQuestionSecondOption">Ghost</string>
     <string name="firstQuestionThirdOption">Black Soap</string>
@@ -88,4 +88,6 @@
     <string name="fifthQuestionThirdOption">We no dey hear word</string>
     <string name="fifthQuestionFourthOption">We too dey thief</string>
     <string name="fifthQuestionFifthOption">We do not</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

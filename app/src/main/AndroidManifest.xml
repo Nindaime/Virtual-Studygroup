@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.intent.action.TTS_SERVICE"/>
 
     <application
         android:name=".util.AppClass"
@@ -17,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".Questionaire"></activity>
+
         <activity android:name=".StudentRecords" />
         <activity android:name=".student.StudentAssessment" />
         <activity android:name=".AssignmentDetail" />
