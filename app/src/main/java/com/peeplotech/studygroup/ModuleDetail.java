@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.SimpleItemAnimator;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.MediaController;
@@ -32,7 +33,7 @@ public class ModuleDetail extends AppCompatActivity {
     private VideoView videoPlayer;
     private TextView moduleTitle, moduleDescription, readMoreText;
     private RecyclerView discussionRecycler;
-    private EditText chatEdt;
+    private EditTextWithSpeaker chatEdt;
     private ImageView sendBtn;
 
     //values
@@ -145,11 +146,15 @@ public class ModuleDetail extends AppCompatActivity {
 
     private void sendDiscussion() {
 
+        Log.d("victor: ","here");
+        Log.d("victor: ",chatEdt.getText());
+        Log.d("victor: ",chatEdt.getText().trim());
         //chat id
         String chatTable = moduleId + Common.MODULE_CHAT;
 
         //extract string
-        String theMsg = chatEdt.getText().toString().trim();
+        String theMsg = chatEdt.getText().trim();
+        Log.d("modules", theMsg);
 
         if (!TextUtils.isEmpty(theMsg)){
 

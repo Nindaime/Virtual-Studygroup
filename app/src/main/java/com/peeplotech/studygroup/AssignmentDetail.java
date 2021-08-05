@@ -63,7 +63,7 @@ public class AssignmentDetail extends AppCompatActivity {
     private TextView assTitle, assScore, assDeadline;
     private TextView viewAss, viewSubmissions, submitAssignment;
     private RecyclerView discussionRecycler;
-    private EditText chatEdt;
+    private EditTextWithSpeaker chatEdt;
     private ImageView sendBtn;
 
     //values

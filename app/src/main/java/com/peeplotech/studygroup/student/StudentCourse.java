@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,7 @@ import java.util.List;
 
 import com.peeplotech.studygroup.R;
 import com.peeplotech.studygroup.StudentRecords;
+import com.peeplotech.studygroup.TextWithSpeaker;
 import com.peeplotech.studygroup.adapters.AssignmentAdapter;
 import com.peeplotech.studygroup.adapters.ModuleAdapter;
 import com.peeplotech.studygroup.databases.Database;
@@ -37,8 +39,9 @@ public class StudentCourse extends AppCompatActivity {
 
     //widgets
     private ImageView backBtn;
-    private TextView courseTitle, moduleSummary, assignmentSummary;
-    private TextView viewModulesDets, viewAssignmentDets, viewAssessmentDets, viewRecords;
+
+    private TextWithSpeaker moduleSummary , assignmentSummary, viewRecords;
+    private TextView courseTitle,viewModulesDets, viewAssignmentDets, viewAssessmentDets;
 
     //value
     private String courseId;
@@ -103,8 +106,9 @@ public class StudentCourse extends AppCompatActivity {
 
         //summary
         int totalModules = new Database(this).getAllModules(courseId).size();
+        Log.d("modules", "setting tags");
         moduleSummary.setText("Lecturer has only created " + totalModules + " lecture module(s) for this course. Click on details below to explore.");
-
+        Log.d("modules","\"Lecturer has only created \" + totalModules + \" lecture module(s) for this course. Click on details below to explore.");
         //view all modules
         viewModulesDets.setOnClickListener(v -> {
             openModuleListDialog();

@@ -167,23 +167,16 @@
         android:id="@+id/chatLayout"
         android:background="@color/colorPrimaryDark">
 
-        <EditText
+        <com.peeplotech.studygroup.EditTextWithSpeaker
+            android:id="@+id/chatEdt"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/sendBtn"
             android:background="@drawable/edt_solid_white"
-            android:padding="10dp"
-            android:gravity="center_vertical"
-            android:inputType="textCapSentences"
-            android:textStyle="normal"
-            android:textSize="16sp"
-            android:textColor="@color/colorAccent"
-            android:textColorHint="@color/transparentBlack"
-            android:hint="@string/write_a_contribution"
-            android:id="@+id/chatEdt"
-            android:layout_toStartOf="@+id/sendBtn"/>
+            app:text='' />
 
         <ImageView
             android:layout_width="30dp"

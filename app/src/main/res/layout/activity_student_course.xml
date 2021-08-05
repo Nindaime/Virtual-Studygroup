@@ -1,64 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".student.StudentCourse"
-    android:background="@color/offWhiteBack">
+    android:background="@color/offWhiteBack"
+    tools:context=".student.StudentCourse">
 
     <RelativeLayout
+        android:id="@+id/appTopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/app_bar_back"
-        android:id="@+id/appTopBar">
+        android:background="@drawable/app_bar_back">
 
         <ImageView
+            android:id="@+id/backBtn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_back"
-            android:layout_marginTop="20dp"
+            android:layout_alignParentStart="true"
             android:layout_marginStart="25dp"
-            app:tint="@color/white"
-            android:id="@+id/backBtn"
-            android:layout_alignParentStart="true"/>
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_back"
+            app:tint="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="25dp"
             android:text="@string/course_info"
             android:textColor="@color/white"
             android:textSize="17sp"
-            android:textStyle="bold"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="25dp"/>
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/courseTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/backBtn"
-            android:layout_marginTop="10dp"
+            android:layout_alignParentStart="true"
             android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="25dp"
             android:layout_marginBottom="12dp"
-            android:textColor="@color/white"
-            android:text=""
-            android:textSize="17sp"
-            android:layout_alignParentStart="true"
-            android:maxLines="1"
             android:ellipsize="end"
-            android:id="@+id/courseTitle"/>
+            android:maxLines="1"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="17sp" />
 
     </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
         android:layout_below="@+id/appTopBar"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,55 +68,57 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                app:cardElevation="6dp"
                 app:cardBackgroundColor="@color/colorPrimaryDark"
-                app:cardCornerRadius="12dp">
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginBottom="7dp"
                     android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp">
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="7dp"
+                    android:orientation="vertical">
 
-                    <TextView
+
+                    <com.peeplotech.studygroup.TextWithSpeaker
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/modules"
-                        android:textSize="20sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:maxLines="1"
+                        android:layout_marginTop="10dp"
                         android:ellipsize="end"
-                        android:layout_marginTop="10dp"/>
+                        app:maxLines="1"
+                        app:text="@string/modules"
+                        app:textColor="@color/white"
+                        app:textSize="10sp"
+                        app:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/modules"
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
-                        android:textStyle="normal"
+                    <com.peeplotech.studygroup.TextWithSpeaker
+
                         android:id="@+id/moduleSummary"
-                        android:maxLines="3"
-                        android:ellipsize="end"
-                        android:layout_marginTop="10dp"/>
-
-                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/view_details"
-                        android:textSize="15sp"
-                        android:textColor="@color/colorAccent"
-                        android:textStyle="bold"
-                        android:maxLines="1"
+                        android:layout_marginTop="10dp"
                         android:ellipsize="end"
-                        android:gravity="end"
+                        app:maxLines="3"
+                        app:text="@string/modules"
+                        app:textColor="@color/white"
+                        app:textSize="7.5sp"
+                        app:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/viewModulesDets"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="20dp"
-                        android:id="@+id/viewModulesDets"/>
+                        android:ellipsize="end"
+                        android:gravity="end"
+                        android:maxLines="1"
+                        android:text="@string/view_details"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -127,55 +128,57 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                app:cardElevation="6dp"
                 app:cardBackgroundColor="@color/colorPrimaryDark"
-                app:cardCornerRadius="12dp">
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginBottom="7dp"
                     android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp">
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="7dp"
+                    android:orientation="vertical">
 
-                    <TextView
+                    <com.peeplotech.studygroup.TextWithSpeaker
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/assignments"
-                        android:textSize="20sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:maxLines="1"
+                        android:layout_marginTop="10dp"
                         android:ellipsize="end"
-                        android:layout_marginTop="10dp"/>
+                        app:maxLines="1"
+                        app:text="@string/assignments"
+                        app:textColor="@color/white"
+                        app:textSize="10sp"
+                        app:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/modules"
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
-                        android:textStyle="normal"
+
+                    <com.peeplotech.studygroup.TextWithSpeaker
+
                         android:id="@+id/assignmentSummary"
-                        android:maxLines="3"
-                        android:ellipsize="end"
-                        android:layout_marginTop="10dp"/>
-
-                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/view_details"
-                        android:textSize="15sp"
-                        android:textColor="@color/colorAccent"
-                        android:textStyle="bold"
-                        android:maxLines="1"
+                        android:layout_marginTop="10dp"
                         android:ellipsize="end"
-                        android:gravity="end"
+                        app:maxLines="3"
+                        app:text="@string/modules"
+                        app:textColor="@color/white"
+                        app:textSize="7.5sp"
+                        app:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/viewAssignmentDets"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="20dp"
-                        android:id="@+id/viewAssignmentDets"/>
+                        android:ellipsize="end"
+                        android:gravity="end"
+                        android:maxLines="1"
+                        android:text="@string/view_details"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -185,55 +188,60 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                app:cardElevation="6dp"
                 app:cardBackgroundColor="@color/colorPrimaryDark"
-                app:cardCornerRadius="12dp">
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginBottom="7dp"
                     android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp">
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="7dp"
+                    android:orientation="vertical">
 
-                    <TextView
+                    <com.peeplotech.studygroup.TextWithSpeaker
+
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Course Assessment"
-                        android:textSize="20sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:maxLines="1"
+                        android:layout_marginTop="10dp"
                         android:ellipsize="end"
-                        android:layout_marginTop="10dp"/>
+                        app:maxLines="1"
+                        app:text="Course Assessment"
+                        app:textColor="@color/white"
+                        app:textSize="10sp"
+                        app:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="This course assessment is a 50 mcq exercise to be done in with a time limit of 20 secs per question."
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
-                        android:textStyle="normal"
+
+                    <com.peeplotech.studygroup.TextWithSpeaker
+
                         android:id="@+id/assessmentSummary"
-                        android:maxLines="3"
-                        android:ellipsize="end"
-                        android:layout_marginTop="10dp"/>
-
-                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/u_take_assessment_u"
-                        android:gravity="end"
-                        android:layout_marginBottom="20dp"
-                        android:textSize="15sp"
-                        android:textColor="@color/colorAccent"
-                        android:textStyle="bold"
-                        android:maxLines="1"
-                        android:ellipsize="end"
                         android:layout_marginTop="10dp"
-                        android:id="@+id/viewAssessmentDets"/>
+                        android:ellipsize="end"
+                        app:maxLines="3"
+                        app:text="This course assessment is a 50 mcq exercise to be done in with a time limit of 20 secs per question."
+                        app:textColor="@color/white"
+                        app:textSize="7.5sp"
+                        app:textStyle="normal" />
+
+
+                    <TextView
+                        android:id="@+id/viewAssessmentDets"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:ellipsize="end"
+                        android:gravity="end"
+                        android:maxLines="1"
+                        android:text="@string/u_take_assessment_u"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -243,43 +251,49 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                app:cardElevation="6dp"
                 app:cardBackgroundColor="@color/colorPrimaryDark"
-                app:cardCornerRadius="12dp">
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginBottom="7dp"
                     android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp">
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="7dp"
+                    android:orientation="vertical">
 
-                    <TextView
+                    <com.peeplotech.studygroup.TextWithSpeaker
+
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="My Academic Record"
-                        android:textSize="20sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:maxLines="1"
-                        android:ellipsize="end"
-                        android:layout_marginTop="10dp"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/view_details"
-                        android:gravity="end"
-                        android:layout_marginBottom="20dp"
-                        android:textSize="15sp"
-                        android:textColor="@color/colorAccent"
-                        android:textStyle="bold"
-                        android:maxLines="1"
-                        android:ellipsize="end"
                         android:layout_marginTop="10dp"
-                        android:id="@+id/viewRecords"/>
+                        android:ellipsize="end"
+                        app:maxLines="1"
+                        app:text="My Academic Record"
+                        app:textColor="@color/white"
+                        app:textSize="10sp"
+                        app:textStyle="bold" />
+
+
+                    <com.peeplotech.studygroup.TextWithSpeaker
+
+                        android:id="@+id/viewRecords"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:ellipsize="end"
+                        android:gravity="end"
+                        android:text="@string/view_details"
+                        app:maxLines="1"
+
+                        app:textColor="@color/colorAccent"
+                        app:textSize="7.5sp"
+                        app:textStyle="bold" />
+
 
                 </LinearLayout>
 

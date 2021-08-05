@@ -22,9 +22,9 @@ import android.widget.TextView;
  * TODO: document your custom view class.
  */
 public class EditTextWithSpeaker extends FrameLayout {
-    private String textValue; // TODO: use a default from R.string...
-    private int textColor = Color.RED; // TODO: use a default from R.color...
-    private int textHeight; // TODO: use a default from R.dimen...
+    private String text; // TODO: use a default from R.string...
+
+
 
 
     private ImageView imageView;
@@ -56,6 +56,7 @@ public class EditTextWithSpeaker extends FrameLayout {
         imageView = findViewById(R.id.imageView);
         editText = findViewById(R.id.editText);
 
+
         converter = new SpeechToTextConverter(getContext(), editText);
         SpeechRecognizer recognizer = converter.getSpeechRecognizer();
         Intent speechRecognizerIntent = converter.getSpeechRecognizerIntent();
@@ -80,19 +81,13 @@ public class EditTextWithSpeaker extends FrameLayout {
         final TypedArray a = getContext().obtainStyledAttributes(
                 attrs, R.styleable.TextWithSpeaker, defStyle, 0);
 
-        textValue = a.getString(
-                R.styleable.TextWithSpeaker_textValue);
+        text = a.getString(
+                R.styleable.TextWithSpeaker_text);
 
-        textColor = a.getColor(
-                R.styleable.TextWithSpeaker_textColor,
-                textColor);
-        textHeight = a.getInteger(
-                R.styleable.TextWithSpeaker_textHeight,
-                textHeight);
 
-        editText.setText(textValue);
-        editText.setTextColor(textColor);
-        editText.setHeight(textHeight);
+        editText.setText(text);
+
+
         // Use getDimensionPixelSize or getDimensionPixelOffset when dealing with
         // values that should fall on pixel boundaries.
 
@@ -108,8 +103,10 @@ public class EditTextWithSpeaker extends FrameLayout {
      *
      * @return The example string attribute value.
      */
-    public String getTextValue() {
-        return textValue;
+    public String getText() {
+
+
+        return editText.getText().toString();
     }
 
     /**
@@ -118,48 +115,11 @@ public class EditTextWithSpeaker extends FrameLayout {
      *
      * @param v The example string attribute value to use.
      */
-    public void setTextValue(String v) {
-        textValue = v;
+    public void setText(String v) {
+
+        text = v;
 
     }
 
-    /**
-     * Gets the example color attribute value.
-     *
-     * @return The example color attribute value.
-     */
-    public int getTextColor() {
-        return textColor;
-    }
-
-    /**
-     * Sets the view"s example color attribute value. In the example view, this color
-     * is the font color.
-     *
-     * @param exampleColor The example color attribute value to use.
-     */
-    public void setTextColor(int exampleColor) {
-        textColor = exampleColor;
-
-    }
-
-    /**
-     * Gets the example dimension attribute value.
-     *
-     * @return The example dimension attribute value.
-     */
-    public float getTextHeight() {
-        return textHeight;
-    }
-
-    /**
-     * Sets the view"s example dimension attribute value. In the example view, this dimension
-     * is the font size.
-     *
-     * @param height The example dimension attribute value to use.
-     */
-    public void setTextHeight(int height) {
-        textHeight = height;
-    }
 
 }

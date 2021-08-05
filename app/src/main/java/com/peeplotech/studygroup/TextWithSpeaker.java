@@ -3,24 +3,34 @@ package com.peeplotech.studygroup;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Dimension;
+import androidx.annotation.RequiresApi;
+
 
 /**
  * TODO: document your custom view class.
  */
 public class TextWithSpeaker extends FrameLayout {
-    private String textValue; // TODO: use a default from R.string...
+    private String text; // TODO: use a default from R.string...
     private int textColor = Color.RED; // TODO: use a default from R.color...
-    private int textHeight = 0; // TODO: use a default from R.dimen...
+    private int textStyle = 0;
+    private int maxLines = 3;
+    private int textSize = 15;
 
-
-    private ImageView imageView;
     private TextView textView;
     private TextToSpeechConverter converter;
+
+    private ImageButton speakerButton;
 
     private void initView() {
         inflate(getContext(), R.layout.text_with_speaker, this);
@@ -41,33 +51,44 @@ public class TextWithSpeaker extends FrameLayout {
         init(attrs, defStyle);
     }
 
+
     private void init(AttributeSet attrs, int defStyle) {
 
         initView();
+
+//        imageView = findViewById(R.id.imageView);
+        textView = findViewById(R.id.textView);
+        speakerButton = findViewById(R.id.speakerButton);
+
         converter = new TextToSpeechConverter(getContext());
-        this.setOnClickListener(v -> {
+        speakerButton.setOnClickListener(v -> {
             converter.speak((String) textView.getText());
         });
-        imageView = findViewById(R.id.imageView);
-        textView = findViewById(R.id.textView);
-        Log.d("image view", imageView.toString());
+
         // Load attributes
         final TypedArray a = getContext().obtainStyledAttributes(
                 attrs, R.styleable.TextWithSpeaker, defStyle, 0);
 
-        textValue = a.getString(
-                R.styleable.TextWithSpeaker_textValue);
+        text = a.getString(
+                R.styleable.TextWithSpeaker_text);
 
         textColor = a.getColor(
                 R.styleable.TextWithSpeaker_textColor,
                 textColor);
-        textHeight = a.getInteger(
-                R.styleable.TextWithSpeaker_textHeight,
-                textHeight);
 
-        textView.setText(textValue);
+        textStyle = a.getInteger(R.styleable.TextWithSpeaker_textStyle, textStyle);
+        textSize = a.getDimensionPixelSize(R.styleable.TextWithSpeaker_textSize, textSize);
+        maxLines = a.getInteger(R.styleable.TextWithSpeaker_maxLines, maxLines);
+
+
+        textView.setText(text);
         textView.setTextColor(textColor);
-        textView.setHeight(textHeight);
+        textView.setTextSize(textSize);
+        textView.setMaxLines(maxLines);
+        textView.setTypeface(Typeface.DEFAULT, textStyle);
+
+        checkTextLength();
+
         // Use getDimensionPixelSize or getDimensionPixelOffset when dealing with
         // values that should fall on pixel boundaries.
 
@@ -83,8 +104,8 @@ public class TextWithSpeaker extends FrameLayout {
      *
      * @return The example string attribute value.
      */
-    public String getTextValue() {
-        return textValue;
+    public String getText() {
+        return text;
     }
 
     /**
@@ -93,9 +114,23 @@ public class TextWithSpeaker extends FrameLayout {
      *
      * @param v The example string attribute value to use.
      */
-    public void setTextValue(String v) {
-        textValue = v;
+    public void setText(String v) {
 
+        text = v;
+
+        textView.setText(v);
+
+        checkTextLength();
+
+
+    }
+
+    private void checkTextLength(){
+        int lengthOfText = textView.getText().length();
+
+        if(lengthOfText < 1){
+            speakerButton.setVisibility(View.INVISIBLE);
+        }
     }
 
     /**
@@ -123,9 +158,7 @@ public class TextWithSpeaker extends FrameLayout {
      *
      * @return The example dimension attribute value.
      */
-    public float getTextHeight() {
-        return textHeight;
-    }
+
 
     /**
      * Sets the view"s example dimension attribute value. In the example view, this dimension
@@ -133,8 +166,5 @@ public class TextWithSpeaker extends FrameLayout {
      *
      * @param height The example dimension attribute value to use.
      */
-    public void setTextHeight(int height) {
-        textHeight = height;
-    }
 
 }

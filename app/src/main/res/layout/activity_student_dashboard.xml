@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".student.StudentDashboard"
-    android:background="@color/offWhiteBack">
+    android:background="@color/offWhiteBack"
+    tools:context=".student.StudentDashboard">
 
     <LinearLayout
+        android:id="@+id/appTopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/app_bar_back"
         android:layout_alignParentTop="true"
         android:animateLayoutChanges="true"
-        android:id="@+id/appTopBar">
+        android:background="@drawable/app_bar_back"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -26,109 +25,94 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toStartOf="@+id/userAvatar"
                 android:layout_marginStart="20dp"
+                android:layout_toStartOf="@+id/userAvatar"
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/greetUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
                     android:gravity="center_vertical"
-                    tools:text="Welcome Elias,"
-                    android:textStyle="bold"
+                    android:maxLines="1"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:id="@+id/greetUser"
-                    android:maxLines="1"
-                    android:ellipsize="end"/>
+                    android:textStyle="bold"
+                    tools:text="Welcome Elias," />
 
                 <TextView
+                    android:id="@+id/userId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:text="ID: ADE141627"
-                    android:textColor="@color/white"
-                    android:textSize="13sp"
-                    android:gravity="start"
                     android:layout_gravity="center_vertical"
                     android:ellipsize="end"
+                    android:gravity="start"
                     android:maxLines="1"
-                    android:id="@+id/userId"/>
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    tools:text="ID: ADE141627" />
 
                 <TextView
+                    android:id="@+id/dyslexicScore"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:text="0"
-                    android:textColor="@color/white"
-                    android:textSize="13sp"
-                    android:gravity="start"
                     android:layout_gravity="center_vertical"
                     android:ellipsize="end"
+                    android:gravity="start"
                     android:maxLines="1"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
                     android:visibility="invisible"
-                    android:id="@+id/dyslexicScore"/>
+                    tools:text="0" />
 
-                <com.peeplotech.studygroup.TextWithSpeaker
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-                    app:textValue="My name is amaobi"
-                    app:textHeight="50"
-                    app:textColor="@color/white"
-                    />
-
-                <com.peeplotech.studygroup.EditTextWithSpeaker
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-                    app:textValue="My name is amaobi"
-                    app:textHeight="50"
-                    app:textColor="@color/white"
-                    />
 
             </LinearLayout>
 
             <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/userAvatar"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:id="@+id/userAvatar"
+                android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
-                android:src="@drawable/ic_avatar"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:layout_alignParentEnd="true"
-                app:riv_corner_radius="7dp"
+                android:src="@drawable/ic_avatar"
                 app:riv_border_color="@color/white"
-                app:riv_border_width="1dp"/>
+                app:riv_border_width="1dp"
+                app:riv_corner_radius="7dp" />
 
         </RelativeLayout>
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/courseRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
         android:layout_below="@+id/appTopBar"
-        android:id="@+id/courseRecycler"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:scrollbars="vertical" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/addCourse"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        app:cardCornerRadius="20dp"
-        app:cardBackgroundColor="@color/themeDarkGreen"
-        app:cardElevation="4dp"
-        android:layout_margin="16dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:id="@+id/addCourse">
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/themeDarkGreen"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp">
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_add"
-            app:tint="@color/white"
+            android:adjustViewBounds="true"
             android:contentDescription="@string/add_new_course"
-            android:adjustViewBounds="true"/>
+            android:src="@drawable/ic_add"
+            app:tint="@color/white" />
 
     </androidx.cardview.widget.CardView>
 

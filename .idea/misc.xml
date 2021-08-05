@@ -9,10 +9,25 @@
         <entry key="app/src/main/res/drawable/button_background.xml" value="0.278125" />
         <entry key="app/src/main/res/drawable/gradient_background.xml" value="0.15104166666666666" />
         <entry key="app/src/main/res/drawable/gradient_background_blue.xml" value="0.15104166666666666" />
+        <entry key="app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.13125" />
+        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.13125" />
         <entry key="app/src/main/res/drawable/ic_check_bx.xml" value="0.278125" />
+        <entry key="app/src/main/res/drawable/ic_dropdown.xml" value="0.13125" />
+        <entry key="app/src/main/res/drawable/ic_logout.xml" value="0.13125" />
+        <entry key="app/src/main/res/drawable/ic_open_assignment.xml" value="0.13125" />
+        <entry key="app/src/main/res/drawable/ic_score.xml" value="0.13125" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.13125" />
+        <entry key="app/src/main/res/drawable/ic_send.xml" value="0.13125" />
+        <entry key="app/src/main/res/drawable/ic_speaker.xml" value="0.13125" />
+        <entry key="app/src/main/res/drawable/ic_submit_assignment.xml" value="0.13125" />
+        <entry key="app/src/main/res/drawable/ic_verified.xml" value="0.13125" />
+        <entry key="app/src/main/res/drawable/ic_volume.xml" value="0.13125" />
         <entry key="app/src/main/res/drawable/radio_button_selected.xml" value="0.12" />
         <entry key="app/src/main/res/drawable/radio_button_unselected.xml" value="0.278125" />
+        <entry key="app/src/main/res/layout/activity_assignment_detail.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_module_detail.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_questionnaire.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_student_course.xml" value="0.13903985507246377" />
         <entry key="app/src/main/res/layout/activity_student_dashboard.xml" value="0.22" />
         <entry key="app/src/main/res/layout/edit_text_with_speaker.xml" value="0.33" />
         <entry key="app/src/main/res/layout/sample_edit_text_with_speaker.xml" value="0.13489583333333333" />

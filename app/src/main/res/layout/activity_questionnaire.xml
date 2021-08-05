@@ -225,7 +225,7 @@
 
             <RadioGroup
                 android:id="@+id/radioGroup3"
-                android:layout_width="350"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 >
@@ -311,7 +311,7 @@
 
             <RadioGroup
                 android:id="@+id/radioGroup4"
-                android:layout_width="350"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 >
@@ -397,7 +397,7 @@
 
             <RadioGroup
                 android:id="@+id/radioGroup5"
-                android:layout_width="350"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 >
