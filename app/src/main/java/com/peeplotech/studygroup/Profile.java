@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.makeramen.roundedimageview.RoundedImageView;
+import com.peeplotech.studygroup.util.AppPreference;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.wang.avi.AVLoadingIndicatorView;
@@ -78,6 +79,11 @@ public class Profile extends AppCompatActivity {
         updateText = findViewById(R.id.updateText);
         updateProgress = findViewById(R.id.updateProgress);
         logoutBtn = findViewById(R.id.logoutBtn);
+
+        AppPreference preference = new AppPreference(this);
+
+        Log.d("screen", "user id: "+currentUser.getUser_id());
+        Log.d("screen", "isdyslexic: "+AppPreference.isDyslexic(currentUser.getUser_id()));
 
         //init
         initialize();

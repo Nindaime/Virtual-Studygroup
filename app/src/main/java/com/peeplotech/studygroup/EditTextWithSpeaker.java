@@ -1,5 +1,6 @@
 package com.peeplotech.studygroup;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -18,6 +19,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.peeplotech.studygroup.models.User;
+import com.peeplotech.studygroup.util.AppPreference;
+import com.peeplotech.studygroup.util.Common;
+
+import io.paperdb.Paper;
+
 /**
  * TODO: document your custom view class.
  */
@@ -31,6 +38,7 @@ public class EditTextWithSpeaker extends FrameLayout {
     private EditText editText;
     private SpeechToTextConverter converter;
 
+
     private void initView() {
         inflate(getContext(), R.layout.edit_text_with_speaker, this);
     }
@@ -43,6 +51,7 @@ public class EditTextWithSpeaker extends FrameLayout {
     public EditTextWithSpeaker(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs, 0);
+
     }
 
     public EditTextWithSpeaker(Context context, AttributeSet attrs, int defStyle) {
@@ -87,12 +96,19 @@ public class EditTextWithSpeaker extends FrameLayout {
 
         editText.setText(text);
 
+        AppPreference preference = new AppPreference((Activity) this.getContext());
+
+        User currentUser = Paper.book().read(Common.CURRENT_USER);
+        if(!preference.isDyslexic(""+currentUser.getUser_id())){
+            imageView.setVisibility(View.GONE);
+        }
 
         // Use getDimensionPixelSize or getDimensionPixelOffset when dealing with
         // values that should fall on pixel boundaries.
 
 
         a.recycle();
+
 
 
     }

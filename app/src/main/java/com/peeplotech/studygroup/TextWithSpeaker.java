@@ -1,5 +1,6 @@
 package com.peeplotech.studygroup;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -15,6 +16,12 @@ import android.widget.TextView;
 
 import androidx.annotation.Dimension;
 import androidx.annotation.RequiresApi;
+
+import com.peeplotech.studygroup.models.User;
+import com.peeplotech.studygroup.util.AppPreference;
+import com.peeplotech.studygroup.util.Common;
+
+import io.paperdb.Paper;
 
 
 /**
@@ -95,6 +102,11 @@ public class TextWithSpeaker extends FrameLayout {
 
         a.recycle();
 
+        AppPreference preference = new AppPreference((Activity) this.getContext());
+        User currentUser = Paper.book().read(Common.CURRENT_USER);
+        if(!preference.isDyslexic(""+currentUser.getUser_id())){
+            speakerButton.setVisibility(View.GONE);
+        }
 
     }
 

@@ -3,6 +3,8 @@
     <string name="register">Register</string>
     <string name="log_in">Log In</string>
     <string name="submit">Submit</string>
+    <string name="prev">Prev</string>
+    <string name="next">Next</string>
     <string name="welcome_to_virtual_studygroup">Welcome to Studygroup</string>
     <string name="welcom_text">Create your free account or log in if you are not a new user</string>
     <string name="registration">Registration</string>

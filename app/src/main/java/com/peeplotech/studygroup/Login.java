@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.peeplotech.studygroup.util.AppPreference;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import com.peeplotech.studygroup.databases.Database;
@@ -55,6 +57,7 @@ public class Login extends AppCompatActivity {
 
         //init
         initialize();
+
 
     }
 

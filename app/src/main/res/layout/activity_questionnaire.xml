@@ -10,104 +10,98 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-
-        >
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/questionnaire_title"
-            android:textSize="20dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:padding="4dp"
             android:layout_marginBottom="10dp"
+            android:padding="4dp"
+            android:text="@string/questionnaire_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/design_default_color_background"
-            />
+            android:textSize="20sp" />
 
 
         <LinearLayout
 
             android:layout_width="380dp"
-            android:layout_marginBottom="10dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/box_shadow"
             android:orientation="vertical"
             android:padding="5dp">
 
             <TextView
-                android:id="@+id/firstQuestion"
+                android:id="@+id/question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/firstQuestion"
-                android:textSize="18dp"
                 android:textColor="@color/material_blue_grey_95"
                 android:textFontWeight="@android:integer/config_longAnimTime"
-                />
+                android:textSize="18sp" />
 
             <RadioGroup
-                android:id="@+id/radioGroup1"
+                android:id="@+id/radioGroup"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center">
 
                 <RadioButton
-                    android:id="@+id/q1RadioButton1"
+                    android:id="@+id/radioButton1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/background"
                     android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
+                    android:padding="15dp"
                     android:text="@string/firstQuestionFirstOption" />
 
                 <RadioButton
-                    android:id="@+id/q1RadioButton2"
+                    android:id="@+id/radioButton2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/background"
                     android:button="@drawable/button_background"
-                    android:padding="10dp"
+                    android:padding="15dp"
                     android:paddingStart="5dp"
                     android:text="@string/firstQuestionSecondOption" />
 
                 <RadioButton
-                    android:id="@+id/q1RadioButton3"
+                    android:id="@+id/radioButton3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/background"
                     android:button="@drawable/button_background"
-                    android:padding="10dp"
+                    android:padding="15dp"
                     android:paddingStart="5dp"
                     android:text="@string/firstQuestionThirdOption" />
 
                 <RadioButton
-                    android:id="@+id/q1RadioButton4"
+                    android:id="@+id/radioButton4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/background"
                     android:button="@drawable/button_background"
-                    android:padding="10dp"
+                    android:padding="15dp"
                     android:paddingStart="5dp"
                     android:text="@string/firstQuestionFourthOption" />
 
                 <RadioButton
-                    android:id="@+id/q1RadioButton5"
+                    android:id="@+id/radioButton5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/background"
                     android:button="@drawable/button_background"
-                    android:padding="10dp"
+                    android:padding="15dp"
                     android:paddingStart="5dp"
                     android:text="@string/firstQuestionFifthOption" />
             </RadioGroup>
@@ -116,390 +110,114 @@
 
 
         <LinearLayout
-
-            android:layout_width="380dp"
-            android:layout_marginBottom="10dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/box_shadow"
-            android:orientation="vertical"
-            android:padding="5dp">
-
-            <TextView
-                android:id="@+id/secondQuestion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/secondQuestion"
-                android:textSize="18dp"
-                android:textColor="@color/material_blue_grey_95"
-                android:textFontWeight="@android:integer/config_longAnimTime"
-                />
-
-            <RadioGroup
-                android:id="@+id/radioGroup2"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                >
-
-                <RadioButton
-                    android:id="@+id/q2RadioButton1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/secondQuestionFirstOption" />
-
-                <RadioButton
-                    android:id="@+id/q2RadioButton2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/secondQuestionSecondOption" />
-
-                <RadioButton
-                    android:id="@+id/q2RadioButton3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/secondQuestionThirdOption" />
-
-                <RadioButton
-                    android:id="@+id/q2RadioButton4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/secondQuestionFourthOption" />
-
-                <RadioButton
-                    android:id="@+id/q2RadioButton5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/secondQuestionFifthOption" />
-            </RadioGroup>
-        </LinearLayout>
-
-        <LinearLayout
-
-            android:layout_width="380dp"
-            android:layout_marginBottom="10dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/box_shadow"
-            android:orientation="vertical"
-            android:padding="5dp"
-
-            >
-
-            <TextView
-                android:id="@+id/thirdQuestion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/thirdQuestion"
-                android:textSize="18dp"
-                android:textColor="@color/material_blue_grey_95"
-                android:textFontWeight="@android:integer/config_longAnimTime"
-                />
-
-            <RadioGroup
-                android:id="@+id/radioGroup3"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                >
-
-                <RadioButton
-                    android:id="@+id/q3RadioButton1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/thirdQuestionFirstOption" />
-
-                <RadioButton
-                    android:id="@+id/q3RadioButton2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/thirdQuestionSecondOption" />
-
-                <RadioButton
-                    android:id="@+id/q3RadioButton3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/thirdQuestionThirdOption" />
-
-                <RadioButton
-                    android:id="@+id/q3RadioButton4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/thirdQuestionFourthOption" />
-
-                <RadioButton
-                    android:id="@+id/q3RadioButton5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/thirdQuestionFifthOption" />
-            </RadioGroup>
-
-        </LinearLayout>
-
-        <LinearLayout
-
-            android:layout_width="380dp"
-            android:layout_marginBottom="10dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/box_shadow"
-            android:orientation="vertical"
-            android:padding="5dp">
-
-            <TextView
-                android:id="@+id/fourthQuestion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/fourthQuestion"
-                android:textSize="18dp"
-                android:textColor="@color/material_blue_grey_95"
-                android:textFontWeight="@android:integer/config_longAnimTime"
-                />
-
-            <RadioGroup
-                android:id="@+id/radioGroup4"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                >
-
-                <RadioButton
-                    android:id="@+id/q4RadioButton1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/fourthQuestionFirstOption" />
-
-                <RadioButton
-                    android:id="@+id/q4RadioButton2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/fourthQuestionSecondOption" />
-
-                <RadioButton
-                    android:id="@+id/q4RadioButton3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/fourthQuestionThirdOption" />
-
-                <RadioButton
-                    android:id="@+id/q4RadioButton4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/fourthQuestionFourthOption" />
-
-                <RadioButton
-                    android:id="@+id/q4RadioButton5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    android:text="@string/fourthQuestionFifthOption" />
-            </RadioGroup>
-
-        </LinearLayout>
-
-        <LinearLayout
-
-            android:layout_width="380dp"
-            android:layout_marginBottom="10dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/box_shadow"
-            android:orientation="vertical"
-            android:padding="5dp">
-
-            <TextView
-                android:id="@+id/fifthQuestion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/fifthQuestion"
-                android:textSize="18dp"
-                android:textColor="@color/material_blue_grey_95"
-                android:textFontWeight="@android:integer/config_longAnimTime"
-                />
-
-            <RadioGroup
-                android:id="@+id/radioGroup5"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                >
-
-                <RadioButton
-                    android:id="@+id/q5RadioButton1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fifthQuestionFirstOption"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    />
-
-                <RadioButton
-                    android:id="@+id/q5RadioButton2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fifthQuestionSecondOption"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    />
-
-                <RadioButton
-                    android:id="@+id/q5RadioButton3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fifthQuestionThirdOption"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    />
-
-                <RadioButton
-                    android:id="@+id/q5RadioButton4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fifthQuestionFourthOption"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    />
-
-                <RadioButton
-                    android:id="@+id/q5RadioButton5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fifthQuestionFifthOption"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:button="@drawable/button_background"
-                    android:padding="10dp"
-                    android:paddingStart="5dp"
-                    />
-            </RadioGroup>
-
-        </LinearLayout>
-
-        <RelativeLayout
-            android:id="@+id/submitBtn"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@id/radioGroup5"
-            android:layout_gravity="center"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="20dp"
-            android:animateLayoutChanges="true"
-            android:background="@drawable/btn_solid_green_ripple">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/submitText"
+            <RelativeLayout
+                android:id="@+id/prevBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="20dp"
+                android:animateLayoutChanges="true"
+                >
+
+                <ImageView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_centerInParent="true"
+                    android:background="@color/float_transparent"
+                    android:src="@drawable/ic_back" />
+
+                <com.wang.avi.AVLoadingIndicatorView
+                    style="@style/AVLoadingIndicatorView"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"
+                    app:indicatorColor="@color/white"
+                    app:indicatorName="LineSpinFadeLoaderIndicator" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/submitBtn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="@string/submit"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:layout_height="50dp"
+                android:layout_weight="6"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="20dp"
+                android:animateLayoutChanges="true"
+                android:background="@drawable/btn_solid_green_ripple">
 
-            <com.wang.avi.AVLoadingIndicatorView
-                android:id="@+id/submitProgress"
-                style="@style/AVLoadingIndicatorView"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerInParent="true"
-                android:visibility="gone"
-                app:indicatorColor="@color/white"
-                app:indicatorName="LineSpinFadeLoaderIndicator" />
+                <TextView
+                    android:id="@+id/submitText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/submit"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
-        </RelativeLayout>
+                <com.wang.avi.AVLoadingIndicatorView
+
+                    style="@style/AVLoadingIndicatorView"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"
+                    app:indicatorColor="@color/white"
+                    app:indicatorName="LineSpinFadeLoaderIndicator" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/nextBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="20dp"
+                android:animateLayoutChanges="true"
+                >
+
+                <ImageView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@color/float_transparent"
+                    android:rotation="180"
+                    android:src="@drawable/ic_back" />
+
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:id="@+id/submitProgress"
+                    style="@style/AVLoadingIndicatorView"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"
+                    app:indicatorColor="@color/white"
+                    app:indicatorName="LineSpinFadeLoaderIndicator" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>
