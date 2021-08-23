@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.makeramen.roundedimageview.RoundedImageView;
+import com.peeplotech.studygroup.TextWithSpeaker;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -154,7 +155,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatViewHolder
 
         //widgets
         public RoundedImageView senderImage;
-        public TextView userName, userType, theMessage;
+        public TextView userName, userType;
+        public TextWithSpeaker  theMessage;
         public ImageView messageOption, verificationProcess;
 
         public ChatViewHolder(@NonNull View itemView) {

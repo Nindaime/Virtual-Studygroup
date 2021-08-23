@@ -5,15 +5,18 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.makeramen.roundedimageview.RoundedImageView;
+import com.peeplotech.studygroup.util.AppPreference;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -37,6 +40,7 @@ public class StudentDashboard extends AppCompatActivity {
     private RecyclerView courseRecycler;
     private CardView addCourse;
     private TextView dyslexicScore;
+    private ImageView dyslexicId;
 
     //data
     private SubscribedCourseAdapter adapter;
@@ -63,12 +67,21 @@ public class StudentDashboard extends AppCompatActivity {
         courseRecycler = findViewById(R.id.courseRecycler);
         addCourse = findViewById(R.id.addCourse);
         dyslexicScore = findViewById(R.id.dyslexicScore);
+        dyslexicId = findViewById(R.id.dyslexicId);
 
         if (isNewUser == true) {
             dyslexicScore.setText(String.valueOf(intent.getFloatExtra("score", 0)));
             dyslexicScore.setVisibility(View.VISIBLE);
         }
 
+        AppPreference preference = new AppPreference(StudentDashboard.this);
+        User currentUser = Paper.book().read(Common.CURRENT_USER);
+        if(!preference.isDyslexic(""+currentUser.getUser_id())){
+
+            dyslexicId.setVisibility(View.GONE);
+        }else{
+            dyslexicId.setVisibility(View.VISIBLE);
+        }
         //init
         initialize();
     }
