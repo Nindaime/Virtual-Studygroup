@@ -54,6 +54,7 @@ import com.peeplotech.studygroup.models.Chat;
 import com.peeplotech.studygroup.models.SubmittedAssignment;
 import com.peeplotech.studygroup.models.User;
 import com.peeplotech.studygroup.util.Common;
+
 import io.paperdb.Paper;
 
 public class AssignmentDetail extends AppCompatActivity {
@@ -133,10 +134,11 @@ public class AssignmentDetail extends AppCompatActivity {
         });
 
         //check type
-        if (currentUser.getUser_type().equals(Common.USER_TYPE_LECTURER)){
+        if (currentUser.getUser_type().equals(Common.USER_TYPE_LECTURER)) {
             viewSubmissions.setVisibility(View.VISIBLE);
         } else {
-            if (!new Database(this).haveSubmitted("", currentUser.getUser_id())) {
+
+            if (!new Database(this).haveSubmitted(Database.SUBSCRIBED_COURSE_TABLE, currentUser.getUser_id())) {
                 submitAssignment.setVisibility(View.VISIBLE);
             }
         }
@@ -191,7 +193,7 @@ public class AssignmentDetail extends AppCompatActivity {
 
         viewAssignmentDialog = new AlertDialog.Builder(this, R.style.DialogTheme).create();
         LayoutInflater inflater = this.getLayoutInflater();
-        View viewOptions = inflater.inflate(R.layout.view_assignment_layout,null);
+        View viewOptions = inflater.inflate(R.layout.view_assignment_layout, null);
 
         //widgets
         PDFView pdfView = viewOptions.findViewById(R.id.pdfView);
@@ -235,7 +237,7 @@ public class AssignmentDetail extends AppCompatActivity {
 
         submitAssignmentDialog = new AlertDialog.Builder(this, R.style.DialogTheme).create();
         LayoutInflater inflater = this.getLayoutInflater();
-        View viewOptions = inflater.inflate(R.layout.submit_assignment_layout,null);
+        View viewOptions = inflater.inflate(R.layout.submit_assignment_layout, null);
 
         //widgets
         fileImage = viewOptions.findViewById(R.id.fileImage);
@@ -272,7 +274,7 @@ public class AssignmentDetail extends AppCompatActivity {
             try {
                 startActivityForResult(Intent.createChooser(intent, "Select Your .pdf File"), ASSIGNMENT_REQUEST_CODE);
             } catch (ActivityNotFoundException e) {
-                Toast.makeText(this, "Please Install a File Manager",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please Install a File Manager", Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -281,7 +283,7 @@ public class AssignmentDetail extends AppCompatActivity {
         submitBtn.setOnClickListener(v -> {
 
             //validate
-            if (assignmentUri == null){
+            if (assignmentUri == null) {
 
                 Toast.makeText(this, "Select assignment file", Toast.LENGTH_SHORT).show();
 
@@ -295,7 +297,7 @@ public class AssignmentDetail extends AppCompatActivity {
 
                 //avatar folder
                 File assignmentFolder = new File(Environment.getExternalStorageDirectory(), Common.BASE_FOLDER + "/" + Common.SUBMITTED_ASSIGNMENT_FOLDER);
-                if (!assignmentFolder.exists()){
+                if (!assignmentFolder.exists()) {
                     assignmentFolder.mkdir();
                 }
 
@@ -307,7 +309,7 @@ public class AssignmentDetail extends AppCompatActivity {
                 Log.d("FileError", "File Url: " + Environment.getExternalStorageDirectory() + "/" + split[1]);
 
                 String theFileUrl = null;
-                if (assignmentUri.getPath().contains("home:")){
+                if (assignmentUri.getPath().contains("home:")) {
                     theFileUrl = Environment.getExternalStorageDirectory() + "/Documents/" + split[1];
                 } else {
                     theFileUrl = Environment.getExternalStorageDirectory() + "/" + split[1];
@@ -372,7 +374,7 @@ public class AssignmentDetail extends AppCompatActivity {
 
         viewSubmittedDialog = new AlertDialog.Builder(this, R.style.DialogTheme).create();
         LayoutInflater inflater = this.getLayoutInflater();
-        View viewOptions = inflater.inflate(R.layout.show_submissions_layout,null);
+        View viewOptions = inflater.inflate(R.layout.show_submissions_layout, null);
 
         //widgets
         ImageView backBtn = viewOptions.findViewById(R.id.backBtn);
@@ -411,7 +413,7 @@ public class AssignmentDetail extends AppCompatActivity {
         String tempToken = generateRandomToken();
 
         //get token
-        if (!new Database(this).isSubmittedAssignmentIdInUse(submissionTable, tempToken)){
+        if (!new Database(this).isSubmittedAssignmentIdInUse(submissionTable, tempToken)) {
 
             idToken = tempToken;
 
@@ -424,7 +426,7 @@ public class AssignmentDetail extends AppCompatActivity {
 
     }
 
-    private String generateRandomToken(){
+    private String generateRandomToken() {
         int leftLimit = 97; // letter 'a'
         int rightLimit = 122; // letter 'z'
         int targetStringLength = 9;
@@ -443,7 +445,7 @@ public class AssignmentDetail extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == ASSIGNMENT_REQUEST_CODE && resultCode == RESULT_OK){
+        if (requestCode == ASSIGNMENT_REQUEST_CODE && resultCode == RESULT_OK) {
 
             if (data.getData() != null) {
 
@@ -457,7 +459,7 @@ public class AssignmentDetail extends AppCompatActivity {
     }
 
     public String getPath(Uri uri) {
-        String[] projection = { MediaStore.Video.Media.DATA };
+        String[] projection = {MediaStore.Video.Media.DATA};
         Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
         if (cursor != null) {
             // HERE YOU WILL GET A NULLPOINTER IF CURSOR IS NULL
@@ -503,7 +505,7 @@ public class AssignmentDetail extends AppCompatActivity {
         //extract string
         String theMsg = chatEdt.getText().toString().trim();
 
-        if (!TextUtils.isEmpty(theMsg)){
+        if (!TextUtils.isEmpty(theMsg)) {
 
             //int msg id
             int msgId = chatList.size() + 1;

@@ -5,6 +5,7 @@
         android:drawable="@drawable/radio_button_selected"
         android:state_checked="true"
         android:state_pressed="true"
+
         >
 
         <padding

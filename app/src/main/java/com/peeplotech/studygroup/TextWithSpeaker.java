@@ -93,7 +93,7 @@ public class TextWithSpeaker extends FrameLayout {
         textView.setTextSize(textSize);
         textView.setMaxLines(maxLines);
         textView.setTypeface(Typeface.DEFAULT, textStyle);
-
+//        speakerButton.setForeground();
         checkTextLength();
 
         // Use getDimensionPixelSize or getDimensionPixelOffset when dealing with
@@ -104,6 +104,8 @@ public class TextWithSpeaker extends FrameLayout {
 
         AppPreference preference = new AppPreference((Activity) this.getContext());
         User currentUser = Paper.book().read(Common.CURRENT_USER);
+
+        Log.d("now", String.valueOf(preference.isDyslexic(""+currentUser.getUser_id())));
         if(!preference.isDyslexic(""+currentUser.getUser_id())){
             speakerButton.setVisibility(View.GONE);
         }
