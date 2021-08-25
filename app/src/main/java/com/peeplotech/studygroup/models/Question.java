@@ -31,9 +31,7 @@ public class Question {
         return optionB;
     }
 
-    public String getOptionC() {
-        return optionC;
-    }
+    public String getOptionC() { return optionC; }
 
     public String getOptionD() {
         return optionD;

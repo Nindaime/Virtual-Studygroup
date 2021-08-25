@@ -67,11 +67,9 @@ public class Questionnaire extends AppCompatActivity {
         initializeQuestions();
         initialize();
 
-
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             // This will get the radiobutton that has changed in its check state
             RadioButton checkedRadioButton = (RadioButton) group.findViewById(checkedId);
-
 
             if (checkedRadioButton == null) {
                 return;
@@ -89,9 +87,6 @@ public class Questionnaire extends AppCompatActivity {
                 selectedAnswers.put(currentIndex, ""+checkedRadioButton.getText());
                 onScreenChange = false;
             }
-
-
-
 
         });
     }
